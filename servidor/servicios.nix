@@ -21,6 +21,7 @@
 		21027
 		];
 	};
+
 	services.grafana= 
 	{
 		enable = true;
@@ -32,6 +33,8 @@
 		};
 	};
 
+	services.n8n.enable = true;
+	
 	services.openssh.enable = true;
   	networking.networkmanager.enable = true;
 	nix.settings.experimental-features = ["nix-command" "flakes"];
