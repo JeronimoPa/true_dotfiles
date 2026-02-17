@@ -2,10 +2,12 @@
 {
 
   	environment.systemPackages = with pkgs; [
+				#ISI
                 lazydocker
 				maven
-				
+				jetbrains.idea
 
+				#IA
                 clips
                 vscode
                 
@@ -15,7 +17,8 @@
                 xdot
                 gdb
                 
-				jetbrains.idea
+				#colaborador
+				clang_multi
         ];
 		virtualisation.docker.enable = true;
 users.users.jeronimo.extraGroups = [ "docker" ];
