@@ -21,6 +21,7 @@
 				clang_multi
 
 				unityhub
+				dotnet-sdk_9
         ];
 		virtualisation.docker.enable = true;
 users.users.jeronimo.extraGroups = [ "docker" ];
