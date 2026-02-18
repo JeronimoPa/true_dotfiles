@@ -19,6 +19,8 @@
                 
 				#colaborador
 				clang_multi
+
+				unityhub
         ];
 		virtualisation.docker.enable = true;
 users.users.jeronimo.extraGroups = [ "docker" ];
