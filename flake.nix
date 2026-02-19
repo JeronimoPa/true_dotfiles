@@ -75,6 +75,7 @@
 					};
 					modules = [
 						./modulos/ubicacion.nix
+						./servidor/docker.nix
 						./servidor/hardware-servidor.nix
 						./servidor/boot-server.nix
 						./servidor/servidor.nix

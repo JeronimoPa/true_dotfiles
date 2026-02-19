@@ -5,7 +5,7 @@
 		git
 		fastfetch
 		xorg.xauth	
-]++[pkgs-yuzu.torzu];
+];
   
 
 }
