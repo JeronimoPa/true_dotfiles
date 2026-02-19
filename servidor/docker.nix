@@ -25,6 +25,7 @@
 			environment = {
 				ROOM_NAME = "Servidor bacano";
 				YUZU_BINDADDR ="0.0.0.0"; 
+				YUZU_PREFGAMEID="01006A800016E000";
 				ROOM_DESCRIPTION = "yuzu-room pero en basado";
 				ROOM_PORT = "24872";#para asegurarlo
 				MAX_CONNECTIONS = "16";
