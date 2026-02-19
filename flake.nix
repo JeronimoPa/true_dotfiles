@@ -70,6 +70,9 @@
 				};
 				servidor-nixos = lib.nixosSystem {
 					inherit system;
+					specialArgs = {
+					    inherit pkgs-yuzu;
+					};
 					modules = [
 						./modulos/ubicacion.nix
 						./servidor/hardware-servidor.nix

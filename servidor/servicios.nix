@@ -35,7 +35,14 @@
 
 	services.n8n.enable = true;
 	
-	services.openssh.enable = true;
+	services.openssh={
+		enable = true;
+		settings = {
+			X11Forwarding = true;
+			X11DisplayOffset = 10;
+			X11UseLocalhost = true;
+		};
+	};
   	networking.networkmanager.enable = true;
 	nix.settings.experimental-features = ["nix-command" "flakes"];
 }
