@@ -17,6 +17,10 @@ vim.lsp.config('nixd', {
 })
 
 --vim.lsp.enable('sourcekit')
+vim.lsp.enable('omnisharp')
+vim.lsp.config('omnisharp', {
+    capabilities = capabilities,
+})
 
 vim.lsp.enable('ccls')
 vim.lsp.config('ccls',{

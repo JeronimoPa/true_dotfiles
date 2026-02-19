@@ -66,6 +66,15 @@
     vimAlias = true;
     vimdiffAlias = true;
     extraPackages = with pkgs; [
+		nixd					#nix
+		luajitPackages.lua-lsp	#lua
+		ccls					#c y cpp
+		pyright					#python
+		jdt-language-server		#java
+		omnisharp-roslyn		#unity
+
+
+		ripgrep					#para live_grep
     ];
     plugins = with pkgs.vimPlugins; [
 
@@ -117,6 +126,7 @@
           p.tree-sitter-python
 		  p.tree-sitter-java
           p.tree-sitter-c
+		  p.tree-sitter-c-sharp
         ]));
         config = toLuaFile ./modulos/nvim/plugin/treesitter.lua;
       }
