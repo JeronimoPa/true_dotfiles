@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+set -x
+exec 2>/tmp/hz_debug.log
+# Detectar salida principal
+OUTPUT=$(xrandr | awk '/ connected/{print $1; exit}')
+
+# Resolución actual
+RES=$(xrandr --current | grep -A1 "^$OUTPUT" | tail -n1 | awk '{print $1}')
+
+# Hz actual
+CURRENT_HZ=$(xrandr --current | grep -A1 "^$OUTPUT" | tail -n1 | sed 's/.* \([^*]*\)\*.*/\1/'|sed 's/\..*//')
+# Hz máximo disponible para esa resolución
+MAX_HZ=$(xrandr | grep -A20 "^$OUTPUT" | grep "$RES" -A5 | grep -o '[0-9]\+\.[0-9]\+' | sort -nr | head -n1 | cut -d. -f1)
+
+if [ "$CURRENT_HZ" = "60" ]; then
+    xrandr --output $OUTPUT --mode $RES --rate $MAX_HZ
+else
+    xrandr --output "$OUTPUT" --mode "$RES" --rate 60
+fi

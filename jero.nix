@@ -219,10 +219,11 @@
     #".config/bspwm/bspwmrc".source = 		./modulos/bspwm/bspwmrc;
     #".config/nvim".source = 			./modulos/nvim;
     #".config/nvim".recursive = true;
-    ".config/sxhkd/sxhkdrc".source = 		./modulos/bspwm/sxhkdrc;
-    ".config/polybar/config.ini".source = 	./modulos/bspwm/externo.ini;
-    ".config/rofi".source = 			./modulos/bspwm/rofi;
-    ".config/picom/picom.conf".source =		./modulos/bspwm/picom.conf;   
+    ".config/sxhkd/sxhkdrc".source = 			./modulos/bspwm/sxhkdrc;
+    ".config/polybar/config.ini".source = 		./modulos/bspwm/externo.ini;
+	".config/polybar/scripts".source =			./modulos/bspwm/polybar-scripts;
+    ".config/rofi".source = 					./modulos/bspwm/rofi;
+    ".config/picom/picom.conf".source =			./modulos/bspwm/picom.conf;   
     ".config/MangoHud/MangoHud.conf".source =	./modulos/bspwm/MangoHud.conf;		
     #"wallpaper.png".source = ./modulos/bspwm/wallpaper.png;
 

@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+OUTPUT=$(xrandr | awk '/ connected/{print $1; exit}')
+echo "$(xrandr --current | grep -A1 "^$OUTPUT" | tail -n1 | sed 's/.* \([^*]*\)\*.*/\1/'|sed 's/\..*//')"
