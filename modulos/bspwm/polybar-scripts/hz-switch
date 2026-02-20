@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
-set -x
-exec 2>/tmp/hz_debug.log
+#set -x
+#exec 2>/tmp/hz_debug.log
 # Detectar salida principal
 OUTPUT=$(xrandr | awk '/ connected/{print $1; exit}')
 
