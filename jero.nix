@@ -66,15 +66,15 @@
     vimAlias = true;
     vimdiffAlias = true;
     extraPackages = with pkgs; [
-		nixd					#nix
-		luajitPackages.lua-lsp	#lua
-		ccls					#c y cpp
-		pyright					#python
-		jdt-language-server		#java
-		omnisharp-roslyn		#unity
+		nixd							#nix
+		luajitPackages.lua-lsp			#lua
+		ccls							#c y cpp
+		pyright							#python
+		jdt-language-server				#java
+		omnisharp-roslyn				#unity
+		vscode-langservers-extracted	#web dev
 
-
-		ripgrep					#para live_grep
+		ripgrep							#para live_grep
     ];
     plugins = with pkgs.vimPlugins; [
 

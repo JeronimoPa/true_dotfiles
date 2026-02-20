@@ -42,6 +42,12 @@ vim.lsp.config('ccls',{
 	},
 })
 
+vim.lsp.enable("html")
+vim.lsp.config('html',{
+    capabilities = capabilities,
+})
+
+
 vim.lsp.enable('jdtls')
 vim.lsp.config('jdtls',{
     capabilities = capabilities,
