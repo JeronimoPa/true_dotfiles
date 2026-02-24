@@ -5,6 +5,7 @@
 	{
 		enable = true;
 		qemu.runAsRoot = false; # allows user-mode operation
+		qemu.swtpm.enable = true;
 	};
 	users.users.jeronimo.extraGroups = ["libvirtd" "kvm"];
         
