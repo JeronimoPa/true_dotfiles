@@ -8,6 +8,14 @@
   networking.firewall.allowedTCPPorts = [ 8384 ];
   nixpkgs.config.allowUnfree = true;
   hardware.firmware = [pkgs.linux-firmware];
+  
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+  
+  programs.evolution={
+		enable = true;
+  };
+  services.gnome.evolution-data-server.enable = true;
   environment.systemPackages = with pkgs; [
 	starship
 
