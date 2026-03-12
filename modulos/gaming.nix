@@ -9,6 +9,7 @@
     mangohud
     #minecraft
     prismlauncher
+		#modrinth-app
     #juegos y vainas
     bottles
     #3ds
