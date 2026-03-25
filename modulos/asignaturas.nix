@@ -22,6 +22,9 @@
 
 				unityhub
 				dotnet-sdk_9
+
+				nodejs
+				postman
         ];
 		virtualisation.docker.enable = true;
 users.users.jeronimo.extraGroups = [ "docker" ];

@@ -7,7 +7,9 @@
 		enable = true;
 		#greeter.enable = true;
 		greeters.gtk.enable = true;
+		
 	};
+	security.pam.services.lightdm.enableGnomeKeyring = true;
 services.xserver.xkb = {                                                                   
     layout = "es";                                                                           
      variant = "";                                                                            

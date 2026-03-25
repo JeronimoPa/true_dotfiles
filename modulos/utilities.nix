@@ -9,7 +9,7 @@
   nixpkgs.config.allowUnfree = true;
   hardware.firmware = [pkgs.linux-firmware];
   
-  services.gnome.gnome-keyring.enable = true;
+	#services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
   
   programs.evolution={

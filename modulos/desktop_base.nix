@@ -4,6 +4,7 @@
   
   services.xserver.enable = true;
   services.xserver.desktopManager.xterm.enable= lib.mkForce false;
+
   services.desktopManager.gnome.enable=true;
   
   services.xserver.xkb = {
