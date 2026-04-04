@@ -21,28 +21,35 @@ vim.lsp.enable('omnisharp')
 vim.lsp.config('omnisharp', {
     capabilities = capabilities,
 })
-
-vim.lsp.enable('ccls')
-vim.lsp.config('ccls',{
-	capabilities=capabilities,
-	cmd = { "ccls" },
-	filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp" },
-	root_markers = {".git", "."},
-	init_options = {
-		cache = {
-			directory = "",  -- desactiva la cache
-		},
-		clang = {
-		  	extraArgs = {
-				"-std=c++20",
-				"-Wall",
-				"-Iinclude",
-		  	},
-		},
+vim.lsp.enable('clangd-cpp')
+vim.lsp.config('clangd-cpp', {
+	filetypes = {'hpp', 'cpp' },
+	autostart = true,
+	-- Ruta al clangd del sistema
+	cmd = { "clangd", 
+		"--background-index", 
+		"--clang-tidy",
+		"--query-driver=/run/current-system/sw/bin/g++"  -- Apunta a GCC
 	},
+	init_options = {
+		fallbackFlags = { "-std=c++17" }
+	}
 })
 
-
+vim.lsp.enable('clangd-c')
+vim.lsp.config('clangd-c', {
+	filetypes = {'h', 'c'},
+	autostart = true,
+	-- Ruta al clangd del sistema
+	cmd = { "clangd", 
+		"--background-index", 
+		"--clang-tidy",
+		"--query-driver=/run/current-system/sw/bin/g++"  -- Apunta a GCC
+	},
+	init_options = {
+		fallbackFlags = { "-std=c17" }
+	}
+})
 
 vim.lsp.enable('jdtls')
 vim.lsp.config('jdtls',{

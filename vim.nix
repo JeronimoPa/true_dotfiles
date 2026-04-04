@@ -14,7 +14,7 @@
     extraPackages = with pkgs; [
 		nixd							#nix
 		luajitPackages.lua-lsp			#lua
-		ccls							#c y cpp
+		ccls
 		pyright							#python
 		jdt-language-server				#java
 		omnisharp-roslyn				#unity

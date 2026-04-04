@@ -22,27 +22,27 @@ vim.lsp.config('omnisharp', {
     capabilities = capabilities,
 })
 
-vim.lsp.enable('ccls')
-vim.lsp.config('ccls',{
-	capabilities=capabilities,
-	cmd = { "ccls" },
-	filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp" },
-	root_markers = {".git", "."},
-	init_options = {
-		cache = {
-			directory = "",  -- desactiva la cache
-		},
-		clang = {
-		  	extraArgs = {
-				"-std=c++20",
-				"-Wall",
-				"-Iinclude",
-		  	},
-		},
-	},
-})
+--vim.lsp.enable('ccls')
+--vim.lsp.config('ccls',{
+--capabilities=capabilities,
+--cmd = { "ccls" },
+--filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp" },
+--root_markers = {".git", "."},
+--init_options = {
+--	cache = {
+--		directory = "",  -- desactiva la cache
+--	},
+--	clang = {
+--	  	extraArgs = {
+--			"-std=c++20",
+--			"-Wall",
+--			"-Iinclude",
+--	  	},
+--	},
+--},
+--})
 
-
+vim.lsp.enable('clangd')
 
 vim.lsp.enable('jdtls')
 vim.lsp.config('jdtls',{
