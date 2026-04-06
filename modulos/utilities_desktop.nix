@@ -33,6 +33,13 @@ services.xserver.xkb = {
 	environment.systemPackages = with pkgs;
 	[
 		lxqt.lxqt-policykit
+		
+
+		slop
+		maim
+		xdotool
+
+		easyeffects
 
 		brightnessctl
 

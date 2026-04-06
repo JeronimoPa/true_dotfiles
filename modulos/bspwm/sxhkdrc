@@ -6,11 +6,6 @@
 super + Return
 	kitty
 
-# firefox
-super + shift + ctrl + f
-	firefox
-
-
 # program launcher
 super + @space
 	rofi -show drun -theme $HOME/.config/rofi/gruvbox-dark.rasi -location 0
@@ -21,7 +16,25 @@ super + Escape
 
 super + alt + p
 	reboot
-#
+
+super + s
+    maim ~/Imagenes/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+
+super + shift + s
+    maim -g $(slop -f "%wx%h+%x+%y") ~/Imágenes/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+
+super + a
+    maim -i $(xdotool getactivewindow) ~/Imagenes/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+
+super + shift + c
+    maim -g $(slop -f "%wx%h+%x+%y") | xclip -selection clipboard -t image/png -i
+
+super + ctrl + c
+    maim | xclip -selection clipboard -t image/png -i
+
+super + alt + c
+    maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png -i
+
 # bspwm hotkeys
 #
 
