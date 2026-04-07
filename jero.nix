@@ -132,6 +132,8 @@
     ".config/rofi".source = 					./modulos/bspwm/rofi;
     ".config/picom/picom.conf".source =			./modulos/bspwm/picom.conf;   
     ".config/MangoHud/MangoHud.conf".source =	./modulos/bspwm/MangoHud.conf;		
+    ".config/fotos".source = 					./modulos/bspwm/fotos;
+    ".config/xsecurelock".source = 				./modulos/bspwm/xsecurelock;
     #"wallpaper.png".source = ./modulos/bspwm/wallpaper.png;
 
 
@@ -157,7 +159,7 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
     MANGOHUD_CONFIGFILE="$HOME/.config/MangoHud/MangoHud.conf";
-	RPCS3_DATA_DIR="$(dirname $(dirname $(readlink -f $(command -v rpcs3))))/share/rpcs3";
+	XSECURELOCK_SAVER="$HOME/.config/xsecurelock";
   };
 
   # Let Home Manager install and manage itself.

@@ -4,8 +4,7 @@ exec &>> ~/.bspwmrc.log
 set -x
 
 
-pkill picom
-picom --config $HOME/.config/picom/picom.conf &
+pkill picom;picom --config $HOME/.config/picom/picom.conf &
 
 
 output=$(xrandr | grep " connected" | cut -d' ' -f1)
@@ -34,9 +33,8 @@ bspc config gapless_monocle      	true
 pkill feh
 feh --bg-fill /home/jeronimo/.dotfiles/modulos/bspwm/wallpaper.png &
 
-xset s off
-xset s noblank
-xset -dpms
+xset s 300
+xset s blank
 
 bspc rule -a Polybar layer=below
 # Restart Polybar

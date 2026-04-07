@@ -10,30 +10,33 @@
 		
 	};
 	security.pam.services.lightdm.enableGnomeKeyring = true;
-services.xserver.xkb = {                                                                   
-    layout = "es";                                                                           
-     variant = "";                                                                            
-  };                                                                                         
- services.dbus.enable = true;
+	services.xserver.xkb = {                                                                   
+		layout = "es";                                                                           
+		variant = "";                                                                            
+	};                                                                                         
+	services.dbus.enable = true;
 
- programs.dconf.enable = true;                                                                                             
-   # Configure console keymap                                                                 
+	programs.dconf.enable = true;                                                                                             
+	# Configure console keymap                                                                 
 	#services.resolved.enable = true;
 
 
-   console.keyMap = "es";
+	console.keyMap = "es";
  	services.xserver.windowManager.bspwm.enable = true;
 	networking.networkmanager.enable = true;
 	
 	programs.thunar.enable = true;
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-  security.polkit.enable = true;
+	services.gvfs.enable = true;
+	services.udisks2.enable = true;
+	security.polkit.enable = true;
 
+	programs.xss-lock.enable = true;
+	programs.xss-lock.lockerCommand = "${pkgs.xsecurelock}/bin/xsecurelock";
+	
 	environment.systemPackages = with pkgs;
 	[
 		lxqt.lxqt-policykit
-		
+		xsecurelock
 
 		slop
 		maim

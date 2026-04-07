@@ -17,6 +17,8 @@ super + Escape
 super + alt + p
 	reboot
 
+super + XF86PowerOff
+	xset s activate
 super + s
     maim ~/Imagenes/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
 

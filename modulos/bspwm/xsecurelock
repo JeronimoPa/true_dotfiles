@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# Ruta a tu imagen de fondo. Cámbiala por la tuya.
+IMAGE_PATH="$HOME/.config/fotos/kid-named-pubert.png"
+
+# Obtener el ID de la ventana proporcionada por xsecurelock
+WINDOW_ID=${XSCREENSAVER_WINDOW}
+
+# Usar feh para mostrar la imagen a pantalla completa en la ventana dada.
+# El flag --window-id es clave para que la imagen se muestre dentro de la ventana de xsecurelock.
+# --fullscreen y --borderless eliminan los bordes y la barra de título.
+# --image-bg black establece un fondo negro por si la imagen no cubre toda la pantalla.
+# --zoom fill ajusta la imagen para que cubra toda la pantalla sin deformarse.
+feh --window-id "$WINDOW_ID" \
+    --fullscreen \
+    --borderless \
+    --image-bg black \
+    --zoom fill \
+    "$IMAGE_PATH"
