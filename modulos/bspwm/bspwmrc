@@ -36,6 +36,8 @@ feh --bg-fill /home/jeronimo/.dotfiles/modulos/bspwm/wallpaper.png &
 xset s 300
 xset s blank
 
+xss-lock -- xsecurelock auth_x11 &
+
 bspc rule -a Polybar layer=below
 # Restart Polybar
 pkill polybar

@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
-
 # Ruta a tu imagen de fondo. Cámbiala por la tuya.
-IMAGE_PATH="$HOME/.config/fotos/kid-named-pubert.png"
+IMAGE_PATH="$HOME/.config/fotos/kid-named-pubert.jpg"
 
 # Obtener el ID de la ventana proporcionada por xsecurelock
 WINDOW_ID=${XSCREENSAVER_WINDOW}
@@ -15,5 +14,6 @@ feh --window-id "$WINDOW_ID" \
     --fullscreen \
     --borderless \
     --image-bg black \
-    --zoom fill \
+	--stretch \
+	--ignore-aspect \
     "$IMAGE_PATH"

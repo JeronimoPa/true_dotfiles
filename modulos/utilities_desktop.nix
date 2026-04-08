@@ -30,12 +30,10 @@
 	services.udisks2.enable = true;
 	security.polkit.enable = true;
 
-	programs.xss-lock.enable = true;
-	programs.xss-lock.lockerCommand = "${pkgs.xsecurelock}/bin/xsecurelock";
-	
 	environment.systemPackages = with pkgs;
 	[
 		lxqt.lxqt-policykit
+		xss-lock
 		xsecurelock
 
 		slop
