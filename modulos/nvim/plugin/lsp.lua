@@ -2,7 +2,6 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-vim.keymap.set('n','OF',vim.diagnostic.open_float)
 
 vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
@@ -72,3 +71,8 @@ vim.lsp.enable("jsonls")
 vim.lsp.config('jsonls', {
 	capabilities = capabilities,
 })
+vim.lsp.enable('texlab')
+
+
+
+

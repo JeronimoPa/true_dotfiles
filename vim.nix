@@ -19,6 +19,7 @@
 		jdt-language-server				#java
 		omnisharp-roslyn				#unity
 		vscode-langservers-extracted	#web dev
+		texlab
 
 		ripgrep							#para live_grep
     ];

@@ -33,6 +33,7 @@
 	environment.systemPackages = with pkgs;
 	[
 		lxqt.lxqt-policykit
+		python312Packages.dbus-python
 		xss-lock
 		xsecurelock
 
@@ -41,6 +42,8 @@
 		xdotool
 
 		easyeffects
+
+		bitwarden-desktop
 
 		brightnessctl
 
