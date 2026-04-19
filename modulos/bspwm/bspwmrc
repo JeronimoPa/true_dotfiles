@@ -33,7 +33,7 @@ bspc config gapless_monocle      	true
 pkill feh
 feh --bg-fill /home/jeronimo/.dotfiles/modulos/bspwm/wallpaper.png &
 
-xset s 300
+xset s off
 xset s blank
 
 xss-lock -- xsecurelock auth_x11 &

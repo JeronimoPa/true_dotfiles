@@ -43,6 +43,10 @@
 			X11UseLocalhost = true;
 		};
 	};
+
+	services.gitea.enable = true;
+
+
   	networking.networkmanager.enable = true;
 	nix.settings.experimental-features = ["nix-command" "flakes"];
 }
