@@ -20,12 +20,6 @@ super + alt + p
 super + XF86PowerOff
 	xset s activate
 
-super + s
-    maim ~/Imagenes/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
-
-super + shift + s
-    maim -g $(slop -f "%wx%h+%x+%y") ~/Imágenes/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
-
 super + a
     maim -i $(xdotool getactivewindow) ~/Imagenes/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
 
