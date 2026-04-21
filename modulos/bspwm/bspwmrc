@@ -4,7 +4,7 @@ exec &>> ~/.bspwmrc.log
 set -x
 
 
-pkill picom;picom --config $HOME/.config/picom/picom.conf &
+pkill picom;sleep 0.5;picom --config $HOME/.config/picom/picom.conf &
 
 
 output=$(xrandr | grep " connected" | cut -d' ' -f1)

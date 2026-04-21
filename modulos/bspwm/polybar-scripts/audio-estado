@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+AUDIO=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "%.0f\n", $2 * 100}')
+MUTEADO=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -qi "MUTED" && echo "yes" || echo "no")
+if [[ "$MUTEADO" == "yes" ]]; then
+    ICONO=" "   # Silenciado
+elif [[ $AUDIO -ge 75 ]]; then
+    ICONO=" "   # Muy alto
+elif [[ $AUDIO -ge 50 ]]; then
+    ICONO=" "   # Medio
+elif [[ $AUDIO -ge 25 ]]; then
+    ICONO=" "   # Bajo
+elif [[ $AUDIO -gt 0 ]]; then
+    ICONO=" "   # Muy bajo
+else
+    ICONO=" "   # 0% (silenciado pero no detectado como muted)
+fi
+echo $ICONO
