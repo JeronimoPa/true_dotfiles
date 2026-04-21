@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+ACTUAL=$(brightnessctl get)
+MAX=$(brightnessctl max)
+echo "$((100*ACTUAL/MAX))%"
