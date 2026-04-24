@@ -1,40 +1,25 @@
 {pkgs, lib,...}:
 {
-  
-  
-  services.xserver.enable = true;
-  services.xserver.desktopManager.xterm.enable= lib.mkForce false;
-
-  services.desktopManager.gnome.enable=true;
-  
-  services.xserver.xkb = {
-    layout = "es";
-    variant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "es";
-
-  networking.networkmanager.enable = true;
-environment.gnome.excludePackages = with pkgs; [
-		# orca
+	services.desktopManager.gnome.enable=true;
+	environment.gnome.excludePackages = with pkgs; [
+		orca
 		evince
-		# file-roller
+		file-roller
 		geary
-		#gnome-disk-utility
-		# seahorse
-		# sushi
-		# sysprof
+		gnome-disk-utility
+		seahorse
+		sushi
+		sysprof
 		#
 		# gnome-shell-extensions
 		#
 		# adwaita-icon-theme
-		# nixos-background-info
+		#nixos-background-info
 		gnome-backgrounds
-		# gnome-bluetooth
+		gnome-bluetooth
 		# gnome-color-manager
 		# gnome-control-center
-		# gnome-shell-extensions
+		gnome-shell-extensions
 		gnome-tour # GNOME Shell detects the .desktop file on first log-in.
 		gnome-user-docs
 		# glib # for gsettings program
@@ -42,7 +27,6 @@ environment.gnome.excludePackages = with pkgs; [
 		# gtk3.out # for gtk-launch program
 		# xdg-user-dirs # Update user dirs as described in https://freedesktop.org/wiki/Software/xdg-user-dirs/
 		# xdg-user-dirs-gtk # Used to create the default bookmarks
-		#
 		baobab
 		epiphany
 		gnome-text-editor
@@ -56,10 +40,10 @@ environment.gnome.excludePackages = with pkgs; [
 		gnome-logs
 		gnome-maps
 		gnome-music
-		# gnome-system-monitor
+		gnome-system-monitor
 		gnome-weather
-		# loupe
-		# nautilus
+		loupe
+		nautilus
 		gnome-connections
 		simple-scan
 		snapshot
@@ -68,9 +52,9 @@ environment.gnome.excludePackages = with pkgs; [
 		gnome-software
 	];
 
-  
-  environment.systemPackages = with pkgs; [
-  gnome-tweaks
-  gnome-themes-extra
-  ];
+
+	#	environment.systemPackages = with pkgs; [
+	#		gnome-tweaks
+	#		gnome-themes-extra
+	#	];
 }

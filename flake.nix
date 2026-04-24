@@ -38,6 +38,7 @@
 			./modulos/wacom.nix
 			./modulos/asignaturas.nix
 			./modulos/bluetooth.nix
+			./modulos/desktop_base.nix
 			];
 		in
 		{

@@ -27,6 +27,7 @@
 				nodejs
 				postman
 				mongodb-compass
+				android-studio
         ];
 		virtualisation.docker.enable = true;
 users.users.jeronimo.extraGroups = [ "docker" ];
