@@ -1,101 +1,110 @@
 { pkgs,lib ,... }:
 {
-  programs.neovim = 
-  let
+	programs.neovim = 
+		let
 			#toLua = str: "lua << EOF\n${str}\nEOF\n";
-    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-  in
-  {
-    enable = true;
+			toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+		in
+			{
+			enable = true;
 
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    extraPackages = with pkgs; [
-		nixd							#nix
-		luajitPackages.lua-lsp			#lua
-		ccls
-		pyright							#python
-		jdt-language-server				#java
-		omnisharp-roslyn				#unity
-		vscode-langservers-extracted	#web dev
-		texlab
+			viAlias = true;
+			vimAlias = true;
+			vimdiffAlias = true;
+			extraLuaConfig = ''
+				${builtins.readFile ./modulos/nvim/options.lua}
+			'';
+			extraPackages = with pkgs; [
+				nixd							#nix
+				luajitPackages.lua-lsp			#lua
+				ccls
+				pyright							#python
+				jdt-language-server				#java
+				omnisharp-roslyn				#unity
+				vscode-langservers-extracted	#web dev
+				texlab
 
-		ripgrep							#para live_grep
-    ];
-    plugins = with pkgs.vimPlugins; [
+				ripgrep							#para live_grep
+			];
+			plugins = with pkgs.vimPlugins; [
 
-      {
-        plugin = nvim-lspconfig;
-        config = toLuaFile ./modulos/nvim/plugin/lsp.lua;
-      }
+				{
+					plugin = nvim-lspconfig;
+					config = toLuaFile ./modulos/nvim/plugin/lsp.lua;
+				}
 
-      {
-        plugin = gruvbox-nvim;
-        config = "colorscheme gruvbox";
-      }
+				{
+					plugin = gruvbox-nvim;
+					config = "colorscheme gruvbox";
+				}
 
-      neodev-nvim
+				neodev-nvim
 
-      nvim-cmp 
-      {
-        plugin = nvim-cmp;
-        config = toLuaFile ./modulos/nvim/plugin/cmp.lua;
-      }
+				nvim-cmp 
+				
+				{
+					plugin = nvim-cmp;
+					config = toLuaFile ./modulos/nvim/plugin/cmp.lua;
+				}
 
-      {
-        plugin = telescope-nvim;
-        config = toLuaFile ./modulos/nvim/plugin/telescope.lua;
-      }
+				{
+					plugin = telescope-nvim;
+					config = toLuaFile ./modulos/nvim/plugin/telescope.lua;
+				}
 
-      cmp_luasnip
-      cmp-nvim-lsp
+				{
+					plugin = obsidian-nvim;
+					config = toLuaFile .modulos/nvim/plugin/obsidian.lua;
+				}
+				{
+					plugin = neo-tree-nvim;
+					config = toLuaFile .modulos/nvim/plugin/neo-tree.lua;
+				}
+				cmp_luasnip
+				cmp-nvim-lsp
 
-      luasnip
-      friendly-snippets
-	  
-      {
-        plugin = nvim-autopairs;
-        config = toLuaFile ./modulos/nvim/plugin/autopair.lua;
-      }
+				luasnip
+				friendly-snippets
 
-      {
-        plugin = lualine-nvim;
-        config = toLuaFile ./modulos/nvim/plugin/lualine.lua;
-      }
-      
-      {
-        plugin = (nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-nix
-          p.tree-sitter-vim
-          p.tree-sitter-bash
-          p.tree-sitter-lua
-          p.tree-sitter-python
-		  p.tree-sitter-java
-          p.tree-sitter-c
-		  p.tree-sitter-cpp
-		  p.tree-sitter-c-sharp
-        ]));
-        config = toLuaFile ./modulos/nvim/plugin/treesitter.lua;
-      }
+				{
+					plugin = nvim-autopairs;
+					config = toLuaFile ./modulos/nvim/plugin/autopair.lua;
+				}
 
-      # {
-      #   plugin = vimPlugins.own-onedark-nvim;
-      #   config = "colorscheme onedark";
-      # }
-    ];
+				{
+					plugin = lualine-nvim;
+					config = toLuaFile ./modulos/nvim/plugin/lualine.lua;
+				}
 
-    extraLuaConfig = ''
-      ${builtins.readFile ./modulos/nvim/options.lua}
-    '';
+				{
+					plugin = (nvim-treesitter.withPlugins (p: [
+						p.tree-sitter-nix
+						p.tree-sitter-vim
+						p.tree-sitter-bash
+						p.tree-sitter-lua
+						p.tree-sitter-python
+						p.tree-sitter-java
+						p.tree-sitter-c
+						p.tree-sitter-cpp
+						p.tree-sitter-c-sharp
+					]));
+					config = toLuaFile ./modulos/nvim/plugin/treesitter.lua;
+				}
 
-    # extraLuaConfig = ''
-    #   ${builtins.readFile ./nvim/options.lua}
-    #   ${builtins.readFile ./nvim/plugin/lsp.lua}
-    #   ${builtins.readFile ./nvim/plugin/cmp.lua}
-    #   ${builtins.readFile ./nvim/plugin/telescope.lua}
-    #   ${builtins.readFile ./nvim/plugin/treesitter.lua}
-    #   ${builtins.readFile ./nvim/plugin/other.lua}
-    # '';
-  };
+				# {
+				#   plugin = vimPlugins.own-onedark-nvim;
+				#   config = "colorscheme onedark";
+				# }
+			];
+
+
+			# extraLuaConfig = ''
+			#   ${builtins.readFile ./nvim/options.lua}
+			#   ${builtins.readFile ./nvim/plugin/lsp.lua}
+			#   ${builtins.readFile ./nvim/plugin/cmp.lua}
+			#   ${builtins.readFile ./nvim/plugin/telescope.lua}
+			#   ${builtins.readFile ./nvim/plugin/treesitter.lua}
+			#   ${builtins.readFile ./nvim/plugin/other.lua}
+			# '';
+		};
 }

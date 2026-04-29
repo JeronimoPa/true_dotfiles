@@ -92,6 +92,7 @@
 
   #fucking firefox
   programs.firefox.enable = true;
+
   services.printing.enable = true;
 
   # Enable sound with pipewire.
