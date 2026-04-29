@@ -18,5 +18,6 @@ vim.o.mouse = ''
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
---nnoremap <C-d> <C-d>zz
---nnoremap <C-u> <C-u>zz
+
+
+
