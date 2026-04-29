@@ -54,11 +54,11 @@
 
 				{
 					plugin = obsidian-nvim;
-					config = toLuaFile .modulos/nvim/plugin/obsidian.lua;
+					config = toLuaFile ./modulos/nvim/plugin/obsidian.lua;
 				}
 				{
 					plugin = neo-tree-nvim;
-					config = toLuaFile .modulos/nvim/plugin/neo-tree.lua;
+					config = toLuaFile ./modulos/nvim/plugin/neo-tree.lua;
 				}
 				cmp_luasnip
 				cmp-nvim-lsp
