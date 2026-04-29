@@ -25,7 +25,6 @@
 			window = 
 			{
 				opacity = 0.75;
-
 			};
 			font = 
 				{
@@ -72,9 +71,9 @@
 		{
 			enable = true;
 			initExtra = ''
-	  if [[ -n "$KITTY_WINDOW_ID" && $SHLVL -eq 1 ]]; then
-		eval "$(starship init bash)"
-	  fi
+if [[ "$TERM" == "alacritty"* ]]; then
+	eval "$(starship init bash)"
+fi
 			'';
 		};
 
