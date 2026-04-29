@@ -66,7 +66,7 @@
   	enable = true;
 	settings = {
 			user.email = "jeropan04@gmail.com";
-			user.name = "Negrozma";
+			user.name = "Jerónimo";
 			pull.rebase = true;        # git pull uses rebase
 			rebase.autoStash = true;   # stash automatically during rebase
 		};
