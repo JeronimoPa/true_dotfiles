@@ -16,6 +16,14 @@
 		enable = true;
   };
   services.gnome.evolution-data-server.enable = true;
+	programs.tmux={
+		enable = true;
+		baseIndex = 1;
+		terminal = "screen-256color";
+		shortcut = "w";
+	};
+
+
   environment.systemPackages = with pkgs; [
 	xclip
 	

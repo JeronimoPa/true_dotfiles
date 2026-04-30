@@ -70,11 +70,11 @@
 	programs.bash =
 		{
 			enable = true;
-			initExtra = ''
-if [[ "$TERM" == "alacritty"* ]]; then
-	eval "$(starship init bash)"
-fi
-			'';
+			#			initExtra = ''
+			#if [[ "$TERM" == "alacritty"* ]]; then
+			#	eval "$(starship init bash)"
+			#fi
+			#			'';
 		};
 
 	#programs.ahoviewer,
@@ -154,6 +154,7 @@ fi
 		".config/MangoHud/MangoHud.conf".source =	./modulos/bspwm/MangoHud.conf;		
 		".config/fotos".source = 					./modulos/bspwm/fotos;
 		".config/xsecurelock".source = 				./modulos/bspwm/xsecurelock;
+		".config/tmux/tmux.conf".source = 			./modulos/bspwm/tmux.conf;
 		#"wallpaper.png".source = ./modulos/bspwm/wallpaper.png;
 
 
