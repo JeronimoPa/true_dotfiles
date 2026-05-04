@@ -98,7 +98,9 @@
 	#};
 
 	home.packages = with pkgs; [
+		
 
+		nix-index
 		appflowy
 		#resource monitor:
 		btop
