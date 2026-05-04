@@ -19,16 +19,21 @@
                 
 				#colaborador
 				clang_multi
-
 				clang-tools							#c y cpp
 				unityhub
 				dotnet-sdk_9
+
 
 				nodejs
 				postman
 				mongodb-compass
 				android-studio
         ];
+		programs.nix-ld.enable = true;
+
+
+
+
 		virtualisation.docker.enable = true;
 users.users.jeronimo.extraGroups = [ "docker" ];
 virtualisation.docker.rootless = {

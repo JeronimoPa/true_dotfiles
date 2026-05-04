@@ -1,21 +1,21 @@
 {pkgs,lib, ...}:
 {
 	services.syncthing = {
-  		dataDir = "/home/jeronimo";
-  		enable = true;
-  		user = "jeronimo";
-	};
-  networking.firewall.allowedTCPPorts = [ 8384 ];
-  nixpkgs.config.allowUnfree = true;
-  hardware.firmware = [pkgs.linux-firmware];
-  
-	#services.gnome.gnome-keyring.enable = true;
-  security.pam.services.login.enableGnomeKeyring = true;
-  
-  programs.evolution={
+		dataDir = "/home/jeronimo";
 		enable = true;
-  };
-  services.gnome.evolution-data-server.enable = true;
+		user = "jeronimo";
+	};
+	networking.firewall.allowedTCPPorts = [ 8384 ];
+	nixpkgs.config.allowUnfree = true;
+	hardware.firmware = [pkgs.linux-firmware];
+
+	#services.gnome.gnome-keyring.enable = true;
+	security.pam.services.login.enableGnomeKeyring = true;
+
+	programs.evolution={
+		enable = true;
+	};
+	services.gnome.evolution-data-server.enable = true;
 	programs.tmux={
 		enable = true;
 		baseIndex = 1;
@@ -24,101 +24,104 @@
 	};
 
 
-  environment.systemPackages = with pkgs; [
-	xclip
-	
-	starship
+	environment.systemPackages = with pkgs; [
+		xclip
 
-	alsa-utils
-    
-	libreoffice
+		starship
 
-	tree
-                #neovim
-    parsec-bin
-    #clases 
-    home-manager
-    anydesk   
-    #entornos de desarrollo
-    vscodium
-    
-    #git cabrón
-    git
-    
-    #c y c++
-    gcc
-    
+		alsa-utils
 
-    #tomar notas
-    obsidian
+		libreoffice
 
-    #git
-    lazygit
+		tree
+		#neovim
+		parsec-bin
+		#clases 
+		home-manager
+		anydesk   
+		#entornos de desarrollo
+		vscodium
 
-    #tor
-    tor-browser
+		#git cabrón
+		git
 
-    #music
-    vlc
+		#c y c++
+		gcc
 
-    #discord
-    discord
 
-    #audio control
-    pavucontrol
+		#tomar notas
+		obsidian
 
-    # C#
-    dotnet-sdk
+		#git
+		lazygit
 
-    #python
-    python312
-    
-    #descomprimir rar
-    unrar
+		#tor
+		tor-browser
 
-    #acceder al movil
-    scrcpy
+		#music
+		vlc
 
-    #comics
-    mcomix
+		#discord
+		discord
 
-    exiftool
-    yt-dlp
+		#audio control
+		pavucontrol
 
-    #java
-    jdk
+		# C#
+		dotnet-sdk
 
-    #streaming
-    obs-studio
-	
-	p7zip
-];
-  services.emacs.enable = true;
+		#python
+		python312
 
-  nixpkgs.config.permittedInsecurePackages = [
-          "electron-27.3.11"
-  ];
+		#descomprimir rar
+		unrar
 
-  #fucking firefox
-  programs.firefox.enable = true;
+		#acceder al movil
+		scrcpy
 
-  services.printing.enable = true;
+		#comics
+		mcomix
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+		exiftool
+		yt-dlp
 
- services.xserver.desktopManager.xfce.enable = true;
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-  
-  #nerdfonts para las apps
-  #fonts.packages = with pkgs; [ nerdfonts ];
-  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+		#java
+		jdk
+
+		#streaming
+		obs-studio
+
+		p7zip
+
+		wireguard-tools
+	];
+	networking.firewall.checkReversePath = "loose";
+	services.emacs.enable = true;
+
+	nixpkgs.config.permittedInsecurePackages = [
+		"electron-27.3.11"
+	];
+
+	#fucking firefox
+	programs.firefox.enable = true;
+
+	services.printing.enable = true;
+
+	# Enable sound with pipewire.
+	services.pulseaudio.enable = false;
+	security.rtkit.enable = true;
+	services.pipewire = {
+		enable = true;
+		alsa.enable = true;
+		alsa.support32Bit = true;
+		pulse.enable = true;
+	};
+
+	services.xserver.desktopManager.xfce.enable = true;
+	# Enable touchpad support (enabled default in most desktopManager).
+	# services.xserver.libinput.enable = true;
+
+	#nerdfonts para las apps
+	#fonts.packages = with pkgs; [ nerdfonts ];
+	fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

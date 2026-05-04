@@ -13,7 +13,7 @@
 		#
 		# gnome-shell-extensions
 		#
-		# adwaita-icon-theme
+		adwaita-icon-theme
 		#nixos-background-info
 		gnome-backgrounds
 		gnome-bluetooth
