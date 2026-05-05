@@ -27,6 +27,8 @@
 				ripgrep							#para live_grep
 			];
 			plugins = with pkgs.vimPlugins; [
+				markdown-preview-nvim
+				markdown-nvim
 
 				{
 					plugin = nvim-lspconfig;
@@ -87,6 +89,7 @@
 						p.tree-sitter-c
 						p.tree-sitter-cpp
 						p.tree-sitter-c-sharp
+						p.tree-sitter-markdown
 					]));
 					config = toLuaFile ./modulos/nvim/plugin/treesitter.lua;
 				}

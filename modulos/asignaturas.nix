@@ -19,7 +19,13 @@
                 
 				#colaborador
 				clang_multi
-				clang-tools							#c y cpp
+				clang-tools
+				cbmc
+				
+
+
+
+				#c y cpp
 				unityhub
 				dotnet-sdk_9
 
