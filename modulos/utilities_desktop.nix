@@ -17,8 +17,6 @@
 	services.dbus.enable = true;
 
 	programs.dconf.enable = true;                                                                                             
-	# Configure console keymap                                                                 
-	#services.resolved.enable = true;
 
 
 	console.keyMap = "es";
@@ -33,7 +31,8 @@
 	environment.systemPackages = with pkgs;
 	[
 		lxqt.lxqt-policykit
-		python312Packages.dbus-python
+		python314
+		python314Packages.dbus-python
 		xss-lock
 		xsecurelock
 

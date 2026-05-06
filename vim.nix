@@ -29,7 +29,7 @@
 			plugins = with pkgs.vimPlugins; [
 				markdown-preview-nvim
 				markdown-nvim
-
+				render-markdown-nvim
 				{
 					plugin = nvim-lspconfig;
 					config = toLuaFile ./modulos/nvim/plugin/lsp.lua;

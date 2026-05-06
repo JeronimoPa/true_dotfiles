@@ -10,12 +10,7 @@
 	hardware.firmware = [pkgs.linux-firmware];
 
 	#services.gnome.gnome-keyring.enable = true;
-	security.pam.services.login.enableGnomeKeyring = true;
-
-	programs.evolution={
-		enable = true;
-	};
-	services.gnome.evolution-data-server.enable = true;
+	programs.ssh.startAgent = true;
 	programs.tmux={
 		enable = true;
 		baseIndex = 1;
@@ -25,6 +20,8 @@
 
 
 	environment.systemPackages = with pkgs; [
+		keepassxc
+
 		xclip
 
 		starship
