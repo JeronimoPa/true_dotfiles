@@ -34,6 +34,7 @@ feh --bg-fill /home/jeronimo/.dotfiles/modulos/bspwm/wallpaper.png &
 
 xset s off
 xset s blank
+xset -dpms
 
 xss-lock -- xsecurelock auth_x11 &
 
