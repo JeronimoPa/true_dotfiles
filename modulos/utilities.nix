@@ -17,13 +17,18 @@
 		terminal = "screen-256color";
 		shortcut = "a";
 	};
-
+	programs.gnupg.agent = {
+		enable = true;
+		enableSSHSupport = false;
+	};
 
 	environment.systemPackages = with pkgs; [
 		unzip
 
 		keepassxc
 		pass
+		
+
 
 		xclip
 

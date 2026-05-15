@@ -30,7 +30,6 @@
 
 	environment.systemPackages = with pkgs;
 	[
-		lxqt.lxqt-policykit
 		python314
 		python314Packages.dbus-python
 		xss-lock
