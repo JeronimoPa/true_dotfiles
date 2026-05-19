@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+# Directorio donde tmuxinator guarda configs
+TMUXINATOR_DIR="$HOME/.config/tmuxinator/"
+
+# Lista de sesiones (nombre del archivo sin .yml)
+SESSIONS=$(ls "$TMUXINATOR_DIR" | sed 's/\.yml$//')
+
+# Menú rofi
+SESSION=$(echo "$SESSIONS" | rofi -i -theme $HOME/.config/rofi/gruvbox-dark.rasi -location 0 -dmenu -p "Tmux session")
+
+# Si cancelas
+[ -z "$SESSION" ] && exit 0
+
+# Abre una terminal y lanza tmuxinator
+alacritty -e bash -lc "tmuxinator start $SESSION"

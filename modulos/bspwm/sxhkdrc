@@ -32,6 +32,10 @@ super + ctrl + c
 super + alt + c
     maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png -i
 
+super + o
+	~/.config/misc-scripts/tmuxinator-ui
+
+
 # bspwm hotkeys
 #
 

@@ -145,18 +145,19 @@
 		#   org.gradle.console=verbose
 		#   org.gradle.daemon.idletimeout=3600000
 		# '';
-		#".config/bspwm/bspwmrc".source = 		./modulos/bspwm/bspwmrc;
-		#".config/nvim".source = 			./modulos/nvim;
-		#".config/nvim".recursive = true;
-		".config/sxhkd/sxhkdrc".source = 			./modulos/bspwm/sxhkdrc;
-		".config/polybar/config.ini".source = 		./modulos/bspwm/externo.ini;
-		".config/polybar/scripts".source =			./modulos/bspwm/polybar-scripts;
-		".config/rofi".source = 					./modulos/bspwm/rofi;
-		".config/picom/picom.conf".source =			./modulos/bspwm/picom.conf;   
-		".config/MangoHud/MangoHud.conf".source =	./modulos/bspwm/MangoHud.conf;		
-		".config/fotos".source = 					./modulos/bspwm/fotos;
-		".config/xsecurelock".source = 				./modulos/bspwm/xsecurelock;
-		".config/tmux/tmux.conf".source = 			./modulos/bspwm/tmux.conf;
+		".config/fotos".source = 						./modulos/bspwm/fotos;
+		".config/polybar/scripts".source =				./modulos/bspwm/polybar-scripts;
+		".config/rofi".source = 						./modulos/bspwm/rofi;
+		".config/tmuxinator".source =					./modulos/bspwm/sesiones;
+
+		".config/misc-scripts/tmuxinator-ui".source = 	./modulos/bspwm/tmuxinator-ui;
+		".config/sxhkd/sxhkdrc".source = 				./modulos/bspwm/sxhkdrc;
+		".config/xsecurelock".source = 					./modulos/bspwm/xsecurelock;
+
+		".config/tmux/tmux.conf".source = 				./modulos/bspwm/tmux.conf;
+		".config/polybar/config.ini".source = 			./modulos/bspwm/externo.ini;
+		".config/picom/picom.conf".source =				./modulos/bspwm/picom.conf;   
+		".config/MangoHud/MangoHud.conf".source =		./modulos/bspwm/MangoHud.conf;
 		#"wallpaper.png".source = ./modulos/bspwm/wallpaper.png;
 
 

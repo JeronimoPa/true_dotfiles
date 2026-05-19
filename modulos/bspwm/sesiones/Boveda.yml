@@ -1,0 +1,5 @@
+name: Bóveda
+root: ~/Documentos/Bóveda
+
+windows:
+  - editor: nvim .

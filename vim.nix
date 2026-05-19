@@ -91,7 +91,7 @@
 				himalaya-vim
 				{
 					plugin = alpha-nvim;
-					config = toLuaFile .modulos/nvim/plugin/alpha.lua;
+					config = toLuaFile ./modulos/nvim/plugin/alpha.lua;
 				}
 				nvim-web-devicons
 				#fin_miscelanea

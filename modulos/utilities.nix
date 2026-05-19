@@ -16,6 +16,7 @@
 		baseIndex = 1;
 		terminal = "screen-256color";
 		shortcut = "a";
+		package = pkgs.tmux;
 	};
 	programs.gnupg.agent = {
 		enable = true;
@@ -23,6 +24,9 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		tmuxinator
+
+		impala
 		unzip
 
 		keepassxc
@@ -76,7 +80,7 @@
 		dotnet-sdk
 
 		#python
-		python312
+		##python312
 
 		#descomprimir rar
 		unrar
