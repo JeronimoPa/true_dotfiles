@@ -1,0 +1,5 @@
+name: Colaborador
+root: ~/Documentos/Universidad/Colaborador
+
+windows:
+  - editor: nvim .

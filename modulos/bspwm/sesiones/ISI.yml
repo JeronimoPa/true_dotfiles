@@ -1,0 +1,5 @@
+name: Bóveda
+root: ~/Documentos/Universidad/4_año/1_semestre/ISI
+
+windows:
+  - editor: nvim .

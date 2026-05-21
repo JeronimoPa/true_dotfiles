@@ -1,0 +1,4 @@
+name: Bóveda
+root: ~/Documentos/Universidad/2_año/2_semestre/EDNL
+windows:
+  - editor: nvim .
