@@ -7,21 +7,31 @@ set -x
 pkill picom;sleep 0.5;picom --config $HOME/.config/picom/picom.conf &
 
 
-output=$(xrandr | grep " connected" | cut -d' ' -f1)
-mode=$(xrandr | grep "^$output " -A5 | grep '*' | awk '{print $1}')
+OUTPUT=$(xrandr | grep " connected" | cut -d' ' -f1)
+MODE=$(xrandr | grep "^$OUTPUT " -A5 | grep '*' | awk '{print $1}')
+
+PRIMARY_MONITOR=$(xrandr --query | grep " primary" | cut -d" " -f1)
+SECONDARY_MONITOR=$(xrandr --listmonitors | awk 'NR>1 {print $NF}' | grep -v "$PRIMARY_MONITOR")
+
+MONITOR_COUNT=$(xrandr --listmonitors | head -1 | awk '{print $2}')
+if [[ "$MONITOR_COUNT" -eq 2]]; then
+	bspc monitor "$PRIMARY_MONITOR"   -d I II III IV V
+	bspc monitor "$SECONDARY_MONITOR" -d VI VII VIII IX X
+else
+	bspc monitor $PRIMARY_MONITOR -d I II III IV V VI VII VIII IX X
+fi
 
 pkill sxhkd
 sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
 
 xinput set-prop "ASUF1204:00 2808:0202 Touchpad" "libinput Natural Scrolling Enabled" 1 &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         	3
 bspc config window_gap          	12
 
 	bspc config top_padding			50
-	bspc config bottom_padding			0
+	bspc config bottom_padding		0
 
 bspc config split_ratio          	0.52
 bspc config borderless_monocle   	true
@@ -42,9 +52,10 @@ bspc rule -a Polybar layer=below
 # Restart Polybar
 pkill polybar
 
-polybar left &
-polybar center &
-polybar right &
+
+MONITOR=$PRIMARY_MONITOR polybar left &
+MONITOR=$PRIMARY_MONITOR polybar center &
+MONITOR=$PRIMARY_MONITOR polybar right &
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a mplayer2 state=floating
