@@ -40,7 +40,9 @@
 		goverlay
 
 		parsec-bin
-	]++[pkgs-yuzu.torzu]++[pkgs.deadlock-mod-manager]++[
+
+		ryubing
+	]++[pkgs.deadlock-mod-manager]++[
 			adwaita-icon-theme
 			gnome-themes-extra
 			gtk4

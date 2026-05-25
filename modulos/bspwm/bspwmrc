@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 rm -f ~/.bspwmrc.log
 exec &>> ~/.bspwmrc.log
 set -x
@@ -14,7 +14,7 @@ PRIMARY_MONITOR=$(xrandr --query | grep " primary" | cut -d" " -f1)
 SECONDARY_MONITOR=$(xrandr --listmonitors | awk 'NR>1 {print $NF}' | grep -v "$PRIMARY_MONITOR")
 
 MONITOR_COUNT=$(xrandr --listmonitors | head -1 | awk '{print $2}')
-if [[ "$MONITOR_COUNT" -eq 2]]; then
+if [[ "$MONITOR_COUNT" -eq 2 ]]; then
 	bspc monitor "$PRIMARY_MONITOR"   -d I II III IV V
 	bspc monitor "$SECONDARY_MONITOR" -d VI VII VIII IX X
 else

@@ -90,6 +90,7 @@
 			pull.rebase = true;        # git pull uses rebase
 			rebase.autoStash = true;   # stash automatically during rebase
 		};
+		lfs.enable = true;
 	};
 	# The home.packages option allows you to install Nix packages into your
 	# environment.
