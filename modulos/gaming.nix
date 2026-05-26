@@ -1,22 +1,9 @@
-{ pkgs, pkgs-yuzu,pkgs-unstable,... }:
+{ pkgs, pkgs-yuzu,pkgs-unstable,lib,... }:
 
 {
-	services = {
-		udev = {
-			packages = with pkgs; [
-				game-devices-udev-rules
-			];
-			enable = true;
-		};
-	};
-	hardware.uinput.enable = true;
-	services.udev.extraRules = ''
-  # Nintendo Switch 2 Pro Controller
-  SUBSYSTEM=="usb", ATTR{idVendor}=="057e", MODE="0666"
-
-  # Input devices (gamepads)
-  KERNEL=="event*", SUBSYSTEM=="input", MODE="0666"
-	'';
+	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+		"steam"
+	];
 	environment.systemPackages = with pkgs; [
 		cartridges
 		#actualizar proton
@@ -41,6 +28,8 @@
 
 		parsec-bin
 
+		xdg-utils
+
 		ryubing
 	]++[pkgs.deadlock-mod-manager]++[
 			adwaita-icon-theme
@@ -52,36 +41,39 @@
 		steam = {
 			enable = true;
 			protontricks.enable = true;
-			#			package = pkgs.steam.override {
-			#				extraPkgs = pkgs: with pkgs; [
-			#					# X11 / input
-			#					libxi
-			#					libxtst
-			#					libxcursor
-			#					libxrandr
-			#					libxinerama
-			#					libxrender
-			#					libxcomposite
-			#					libxdamage
-			#
-			#					# GTK / UI (GTK2 es CLAVE)
-			#					gtk2
-			#					gdk-pixbuf
-			#					fontconfig
-			#					freetype
-			#					harfbuzz
-			#
-			#					# Audio
-			#					pipewire
-			#					pulseaudio
-			#
-			#					# Video
-			#					libvdpau
-			#
-			#					# Compression
-			#					bzip2
-			#				];
-			#			};
+			#package = pkgs-unstable.steam;
+			#	package = pkgs-unstable.steam.override {
+			#	extraPkgs = pkgs: with pkgs-unstable; [
+			#		glibc_multi
+			#		glibc
+			#		# X11 / input
+			#		libxi
+			#		libxtst
+			#		libxcursor
+			#		libxrandr
+			#		libxinerama
+			#		libxrender
+			#		libxcomposite
+			#		libxdamage
+
+			#		# GTK / UI (GTK2 es CLAVE)
+			#		gtk2
+			#		gdk-pixbuf
+			#		fontconfig
+			#		freetype
+			#		harfbuzz
+
+			#		# Audio
+			#		pipewire
+			#		pulseaudio
+
+			#		# Video
+			#		libvdpau
+
+			#		# Compression
+			#		bzip2
+			#	];
+			#};
 		};
 		gamemode.enable = true;
 

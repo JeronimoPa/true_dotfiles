@@ -9,6 +9,7 @@
   # Enable GRUB
   boot.loader.grub = {
     enable = true;
+	useOSProber = true;
     efiSupport = true;
     device = "nodev";  # <--- very important: only install to the NVMe
     efiInstallAsRemovable = false;

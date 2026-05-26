@@ -39,6 +39,7 @@
 		programs.nix-ld.libraries = with pkgs;[
 			llvmPackages_18.llvm
 			jdk
+			glibc_multi
 	];	
 
 
