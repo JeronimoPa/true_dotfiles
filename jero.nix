@@ -89,6 +89,7 @@
 			user.name = "Jerónimo";
 			pull.rebase = true;        # git pull uses rebase
 			rebase.autoStash = true;   # stash automatically during rebase
+			#push.default = ;
 		};
 		lfs.enable = true;
 	};
