@@ -21,17 +21,13 @@
 
 	console.keyMap = "es";
  	services.xserver.windowManager.bspwm.enable = true;
-	networking.networkmanager.enable = true;
 	
 	programs.thunar.enable = true;
 	services.gvfs.enable = true;
 	services.udisks2.enable = true;
-	security.polkit.enable = true;
 
 	environment.systemPackages = with pkgs;
 	[
-		python314
-		python314Packages.dbus-python
 		xss-lock
 		xsecurelock
 
@@ -47,7 +43,6 @@
 
 		#nautilus
 
-		networkmanagerapplet
 		#resource monitor:
 		btop
 		#file manager
@@ -64,16 +59,15 @@
 		rofi-power-menu
 
 		#theming for apps
-		  gnome-themes-extra
-		  adwaita-icon-theme
-		  papirus-icon-theme
+		gnome-themes-extra
+		adwaita-icon-theme
+		papirus-icon-theme
 
 		fastfetch
 
 		picom
 
 
-		winetricks
 	];
 	environment.variables = {
   		XCURSOR_THEME = "Bibata-Modern-Ice";

@@ -4,6 +4,9 @@ exec &>> ~/.bspwmrc.log
 set -x
 
 
+#if ! pgrep -x steam >/dev/null; then
+#    steam &
+#fi
 pkill picom;sleep 0.5;picom --config $HOME/.config/picom/picom.conf &
 
 

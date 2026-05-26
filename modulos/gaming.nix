@@ -5,6 +5,8 @@
 		"steam"
 	];
 	environment.systemPackages = with pkgs; [
+		winetricks
+
 		cartridges
 		#actualizar proton
 		protonup-ng

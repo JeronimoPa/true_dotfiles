@@ -5,6 +5,7 @@
 		enable = true;
 		user = "jeronimo";
 	};
+	networking.networkmanager.enable = true;
 	networking.firewall.allowedTCPPorts = [ 8384 ];
 	nixpkgs.config.allowUnfree = true;
 	hardware.firmware = [pkgs.linux-firmware];
@@ -23,7 +24,11 @@
 		enableSSHSupport = false;
 	};
 
+	security.polkit.enable = true;
 	environment.systemPackages = with pkgs; [
+		networkmanagerapplet
+		python314
+		python314Packages.dbus-python
 		tmuxinator
 
 		impala
