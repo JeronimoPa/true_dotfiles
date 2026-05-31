@@ -1,9 +1,26 @@
 { pkgs, pkgs-yuzu,pkgs-unstable,lib,... }:
 
 {
-	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"steam"
-	];
+	services = {
+		udev = {
+			packages = with pkgs; [
+				game-devices-udev-rules
+			];
+			enable = true;
+		};
+	};
+	hardware.uinput.enable = true;
+	services.udev.extraRules = ''
+  # Nintendo Switch 2 Pro Controller
+  SUBSYSTEM=="usb", ATTR{idVendor}=="057e", MODE="0666"
+
+  # Input devices (gamepads)
+  KERNEL=="event*", SUBSYSTEM=="input", MODE="0666"
+	'';
+	hardware.graphics.extraPackages32 = [ pkgs.pkgsi686Linux.libGL ];
+	hardware.graphics.extraPackages = [ pkgs.libGL ];
+	#hardware.graphics.extraPackages = [ pkgs.pkgsi686Linux.libglvnd ];
+
 	environment.systemPackages = with pkgs; [
 		winetricks
 
@@ -42,6 +59,7 @@
 	programs={
 		steam = {
 			enable = true;
+			extraPackages = with pkgs; [pkgs.pkgsi686Linux.libGL pkgs.libGL];
 			protontricks.enable = true;
 			#package = pkgs-unstable.steam;
 			#	package = pkgs-unstable.steam.override {
