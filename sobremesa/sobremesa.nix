@@ -5,7 +5,18 @@
 		{
 			output = "DP-0";
 			primary=true;
-			monitorConfig = "1920x1080@164";
+			monitorConfig = ''
+				Option "PreferredMode" "1920x1080"
+				Option "Position" "0 268"
+			'';
+		}
+		{
+			output = "HDMI-0";
+			primary = false;
+			monitorConfig = ''
+      			Option "Rotate" "left"
+				Option "Position" "1920 0"
+			'';
 		}
 	];	
 }

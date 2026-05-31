@@ -1,3 +1,9 @@
 #!/usr/bin/env sh
-OUTPUT=$(xrandr | awk '/ connected/{print $1; exit}')
-echo "$(xrandr --current | grep -A1 "^$OUTPUT" | tail -n1 | sed 's/.* \([^*]*\)\*.*/\1/'|sed 's/\..*//')"
+
+CURRENT_DESKTOP=$(bspc query -D -d focused --names)
+OUTPUT=$(bspc query -M -d "$CURRENT_DESKTOP" --names)
+
+CURRENT_HZ=$(xrandr --current | grep -A1 "^$OUTPUT" | tail -n1 \
+    | sed 's/.* \([^*]*\)\*.*/\1/' | sed 's/\..*//')
+echo "$CURRENT_HZ"
+
