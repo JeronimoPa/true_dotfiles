@@ -1,0 +1,6 @@
+name: Bóveda
+root: ~/Documentos/Universidad/4_año/1_semestre/ISI/JavaOficial/EsperProject
+
+windows:
+  - editor: nvim .
+  - servidor: mvn compile;mvn exec:java -Dexec.mainClass="esperPackage.Main"
