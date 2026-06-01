@@ -4,6 +4,7 @@
 		let
 			#toLua = str: "lua << EOF\n${str}\nEOF\n";
 			toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+			leer = file: builtins.readFile file;
 		in
 			{
 			enable = true;
@@ -11,7 +12,7 @@
 			viAlias = true;
 			vimAlias = true;
 			vimdiffAlias = true;
-			extraLuaConfig = ''
+			initLua= ''
 				${builtins.readFile ./modulos/nvim/options.lua}
 			'';
 			extraPackages = with pkgs; [
@@ -35,63 +36,84 @@
 				#lsp-config
 				{
 					plugin = nvim-lspconfig;
-					config = toLuaFile ./modulos/nvim/plugin/lsp.lua;
+					type="lua";
+					config = leer ./modulos/nvim/plugin/lsp.lua;
 				}
 				{
 					plugin = nvim-cmp;
-					config = toLuaFile ./modulos/nvim/plugin/cmp.lua;
+					config = leer ./modulos/nvim/plugin/cmp.lua;
+					type="lua";
 				}
 				cmp_luasnip
 				cmp-nvim-lsp
 				luasnip
 				friendly-snippets
+
+#				nvim-treesitter-parsers.nix
+#				nvim-treesitter-parsers.vim
+#				nvim-treesitter-parsers.bash
+#				nvim-treesitter-parsers.lua
+#				nvim-treesitter-parsers.python
+#				nvim-treesitter-parsers.java
+#				nvim-treesitter-parsers.c
+#				nvim-treesitter-parsers.cpp
+#				nvim-treesitter-parsers.c_sharp
+#				nvim-treesitter-parsers.markdown
+				
 				{
-					plugin = (nvim-treesitter.withPlugins (p: [
-						p.tree-sitter-nix
-						p.tree-sitter-vim
-						p.tree-sitter-bash
-						p.tree-sitter-lua
-						p.tree-sitter-python
-						p.tree-sitter-java
-						p.tree-sitter-c
-						p.tree-sitter-cpp
-						p.tree-sitter-c-sharp
-						p.tree-sitter-markdown
-					]));
-					config = toLuaFile ./modulos/nvim/plugin/treesitter.lua;
+					plugin = nvim-treesitter.withPlugins (p: [
+							p.vim
+							p.bash
+							p.lua
+							p.python
+							p.java
+							p.c
+							p.cpp
+							p.c_sharp
+							p.markdown
+					]);
+				#	type="lua";
+				#	config = builtins.readFile ./modulos/nvim/plugin/treesitter.lua;
 				}
 				#fin_lsp-config
 				#estetica
 				{
 					plugin = gruvbox-nvim;
-					config = "colorscheme gruvbox";
+					type="lua";
+  					config = "vim.cmd.colorscheme('gruvbox')";
 				}
 				{
 					plugin = neo-tree-nvim;
-					config = toLuaFile ./modulos/nvim/plugin/neo-tree.lua;
+					type="lua";
+					config = leer ./modulos/nvim/plugin/neo-tree.lua;
 				}
 				{
 					plugin = lualine-nvim;
-					config = toLuaFile ./modulos/nvim/plugin/lualine.lua;
+					type="lua";
+					config = leer ./modulos/nvim/plugin/lualine.lua;
 				}
 				#fin_estetica
 				#miscelanea
 				{
 					plugin = telescope-nvim;
-					config = toLuaFile ./modulos/nvim/plugin/telescope.lua;
+					type="lua";
+					config = leer ./modulos/nvim/plugin/telescope.lua;
 				}
 				{
 					plugin = obsidian-nvim;
-					config = toLuaFile ./modulos/nvim/plugin/obsidian.lua;
+					type="lua";
+					config = leer ./modulos/nvim/plugin/obsidian.lua;
 				}
 				{
 					plugin = nvim-autopairs;
-					config = toLuaFile ./modulos/nvim/plugin/autopair.lua;
+					type="lua";
+					config = leer ./modulos/nvim/plugin/autopair.lua;
 				}
 				himalaya-vim
 				{
 					plugin = alpha-nvim;
-					config = toLuaFile ./modulos/nvim/plugin/alpha.lua;
+					type="lua";
+					config = leer ./modulos/nvim/plugin/alpha.lua;
 				}
 				nvim-web-devicons
 				#fin_miscelanea

@@ -3,6 +3,6 @@
   	environment.systemPackages = with pkgs; [
 		pcsx2
 #		rpcs3	
-		duckstation
+		#duckstation
 	];
 }

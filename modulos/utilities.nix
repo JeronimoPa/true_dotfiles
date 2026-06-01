@@ -5,13 +5,16 @@
 		enable = true;
 		user = "jeronimo";
 	};
+	nixpkgs.config.permittedInsecurePackages = [
+                "electron-39.8.10"
+              ];
 	networking.networkmanager.enable = true;
 	networking.firewall.allowedTCPPorts = [ 8384 ];
 	nixpkgs.config.allowUnfree = true;
 	hardware.firmware = [pkgs.linux-firmware];
 
 	#services.gnome.gnome-keyring.enable = true;
-	programs.ssh.startAgent = true;
+	#programs.ssh.startAgent = true;
 	programs.tmux={
 		enable = true;
 		baseIndex = 1;
@@ -111,10 +114,6 @@
 	];
 	networking.firewall.checkReversePath = "loose";
 	services.emacs.enable = true;
-
-	nixpkgs.config.permittedInsecurePackages = [
-		"electron-27.3.11"
-	];
 
 	#fucking firefox
 	programs.firefox.enable = true;
