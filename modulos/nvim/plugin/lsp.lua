@@ -22,13 +22,14 @@ vim.lsp.config('omnisharp', {
 })
 vim.lsp.enable('clangd-cpp')
 vim.lsp.config('clangd-cpp', {
-	filetypes = {'hpp', 'cpp' },
+	root_markers = {'.'},
+	filetypes = {'cpp'},
 	autostart = true,
 	-- Ruta al clangd del sistema
 	cmd = { "clangd", 
 		"--background-index", 
-		"--clang-tidy",
-		"--query-driver=/run/current-system/sw/bin/g++"  -- Apunta a GCC
+		"--clang-tidy"
+		--"--query-driver=/run/current-system/sw/bin/g++"  -- Apunta a GCC
 	},
 	init_options = {
 		fallbackFlags = { "-std=c++17" }
@@ -37,13 +38,13 @@ vim.lsp.config('clangd-cpp', {
 
 vim.lsp.enable('clangd-c')
 vim.lsp.config('clangd-c', {
-	filetypes = {'h', 'c'},
+	root_markers = {'.'},
+	filetypes = {'c'},
 	autostart = true,
 	-- Ruta al clangd del sistema
 	cmd = { "clangd", 
 		"--background-index", 
 		"--clang-tidy",
-		"--query-driver=/run/current-system/sw/bin/g++"  -- Apunta a GCC
 	},
 	init_options = {
 		fallbackFlags = { "-std=c17" }

@@ -66,41 +66,13 @@
 	programs={
 		steam = {
 			enable = true;
-			extraPackages = with pkgs; [pkgs.pkgsi686Linux.libGL pkgs.libGL];
+			extraPackages = with pkgs; [
+			pkgs.pkgsi686Linux.libGL 
+			pkgs.libGL
+			pkgs.mesa
+			pkgs.pkgsi686Linux.mesa
+			];
 			protontricks.enable = true;
-			#package = pkgs-unstable.steam;
-			#	package = pkgs-unstable.steam.override {
-			#	extraPkgs = pkgs: with pkgs-unstable; [
-			#		glibc_multi
-			#		glibc
-			#		# X11 / input
-			#		libxi
-			#		libxtst
-			#		libxcursor
-			#		libxrandr
-			#		libxinerama
-			#		libxrender
-			#		libxcomposite
-			#		libxdamage
-
-			#		# GTK / UI (GTK2 es CLAVE)
-			#		gtk2
-			#		gdk-pixbuf
-			#		fontconfig
-			#		freetype
-			#		harfbuzz
-
-			#		# Audio
-			#		pipewire
-			#		pulseaudio
-
-			#		# Video
-			#		libvdpau
-
-			#		# Compression
-			#		bzip2
-			#	];
-			#};
 		};
 		gamemode.enable = true;
 

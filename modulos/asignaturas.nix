@@ -41,7 +41,7 @@
 			jdk
 			glibc_multi
 			freetype
-
+			pkgs.pkgsi686Linux.bzip2
 	];	
 
 
