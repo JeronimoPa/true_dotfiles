@@ -21,8 +21,8 @@
 			pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
 			base = [
 			./users.nix
-                                #nvf.nixosModules.default # <- this imports the NixOS module that provides the options
-                                #./nvf-configuration.nix
+			#nvf.nixosModules.default # <- this imports the NixOS module that provides the options
+			#./nvf-configuration.nix
 
 
 			./modulos/boot.nix
@@ -38,7 +38,7 @@
 			./modulos/wacom.nix
 			./modulos/asignaturas.nix
 			./modulos/bluetooth.nix
-				#./modulos/desktop_base.nix
+			#./modulos/desktop_base.nix
 			];
 		in
 		{

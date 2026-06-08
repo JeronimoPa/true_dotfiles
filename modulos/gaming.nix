@@ -50,12 +50,19 @@
 		xdg-utils
 
 		ryubing
+
+		wine64
+		winetricks
+		
+		#wfinfo
+		freetype
+		jq
 	]++[pkgs.deadlock-mod-manager]++[
-			adwaita-icon-theme
-			gnome-themes-extra
-			gtk4
-			gtk3
-		];
+		adwaita-icon-theme
+		gnome-themes-extra
+		gtk4
+		gtk3
+	];
 	programs={
 		steam = {
 			enable = true;
@@ -98,7 +105,7 @@
 		gamemode.enable = true;
 
 	};
-
+	
 	#	services.archisteamfarm={
 	#		enable = true;
 	#		settings = { Statistics = false; };

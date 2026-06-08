@@ -1,5 +1,8 @@
 {pkgs,lib, ...}:
 {
+	environment.sessionVariables = {
+		PATH = [ "$HOME/.local/bin" ];
+	};
 	services.syncthing = {
 		dataDir = "/home/jeronimo";
 		enable = true;

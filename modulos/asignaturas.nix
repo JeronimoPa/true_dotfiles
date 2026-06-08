@@ -40,16 +40,17 @@
 			llvmPackages_18.llvm
 			jdk
 			glibc_multi
+			freetype
+
 	];	
 
 
 
-		virtualisation.docker.enable = true;
-users.users.jeronimo.extraGroups = [ "docker" ];
-virtualisation.docker.rootless = {
-  enable = true;
-  setSocketVariable = true;
-};
+	users.users.jeronimo.extraGroups = [ "docker" ];
+	virtualisation.docker.rootless = {
+		enable = true;
+		setSocketVariable = true;
+	};
 
   #mysql para bd
   services.mysql={
