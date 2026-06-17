@@ -43,13 +43,13 @@ cmp.setup {
       completion = cmp.config.window.bordered({
       col_offset = 0,
       side_padding = 0,
-	  winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
+	--  winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
     }),
 	
       documentation = cmp.config.window.bordered({
       col_offset = 0,
       side_padding = 0,
-	  winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder",
+	--  winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder",
     }),
     },
     sources = {
@@ -57,12 +57,12 @@ cmp.setup {
         { name = 'luasnip' },
     },
 }
-vim.cmd([[
-  hi CmpPmenu       guibg=NONE
-  hi CmpPmenu       ctermbg=NONE
-
-  hi CmpBorder      guifg=#cfcac2 guibg=NONE
-  hi CmpBorder      ctermbg=NONE
-
-  hi CmpSel         guibg=#3a3a3a guifg=NONE
-]])
+--vim.cmd([[
+--  hi CmpPmenu       guibg=NONE
+--  hi CmpPmenu       ctermbg=NONE
+--
+--  hi CmpBorder      guifg=#cfcac2 guibg=NONE
+--  hi CmpBorder      ctermbg=NONE
+--
+--  hi CmpSel         guibg=#3a3a3a guifg=NONE
+--]])

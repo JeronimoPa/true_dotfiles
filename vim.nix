@@ -26,6 +26,7 @@
 				vscode-langservers-extracted	#web dev
 				texlab							#latex
 				ripgrep							#para live_grep
+				poppler-utils
 			];
 			plugins = with pkgs.vimPlugins; [
 				#markdown

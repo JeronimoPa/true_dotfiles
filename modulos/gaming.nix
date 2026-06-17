@@ -57,7 +57,7 @@
 		#wfinfo
 		freetype
 		jq
-	]++[pkgs.deadlock-mod-manager]++[
+	]++[]++[
 		adwaita-icon-theme
 		gnome-themes-extra
 		gtk4
