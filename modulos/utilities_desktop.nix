@@ -29,6 +29,7 @@
 	environment.systemPackages = with pkgs;
 	[
 		xss-lock
+		arandr
 		xsecurelock
 
 		slop
@@ -48,6 +49,7 @@
 		#file manager
 		ranger
 		#resource bar
+		quickshell
 		polybar
 		#image viewer
 		feh

@@ -8,11 +8,10 @@
 		qemu.swtpm.enable = true;
 	};
 	users.users.jeronimo.extraGroups = ["libvirtd" "kvm"];
-        
+    programs.virt-manager.enable = true;
 
 
 	environment.systemPackages = with pkgs; [
-  		virt-manager    # GUI to manage VMs
   		qemu_kvm        # QEMU with KVM support
   		virt-viewer
 	];

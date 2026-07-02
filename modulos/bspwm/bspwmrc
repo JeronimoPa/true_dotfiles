@@ -33,7 +33,7 @@ xinput set-prop "ASUF1204:00 2808:0202 Touchpad" "libinput Natural Scrolling Ena
 bspc config border_width         	3
 bspc config window_gap          	12
 
-	bspc config top_padding			50
+	bspc config top_padding			0
 	bspc config bottom_padding		0
 
 bspc config split_ratio          	0.52
