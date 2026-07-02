@@ -11,30 +11,21 @@
 	{
 		enable = true;
 		allowedTCPPorts = [
-		8384 			#syncthing ui
-		22000 			#syncthing
-		
 		22 			#ssh
 		];
 	
 		allowedUDPPorts = [
-		21027
 		];
 	};
 
-	services.grafana= 
-	{
+
+	services.n8n={
 		enable = true;
-		openFirewall = true;
-		settings = {
-			server = {
-				http_addr = "0.0.0.0";
-			};
+		openFirewall=true;
+		environment={
+			N8N_SECURE_COOKIE=false;
 		};
 	};
-
-	services.n8n.enable = true;
-	
 	services.openssh={
 		enable = true;
 		settings = {
@@ -44,7 +35,6 @@
 		};
 	};
 
-	services.gitea.enable = true;
 
 
   	networking.networkmanager.enable = true;
