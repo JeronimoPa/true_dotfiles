@@ -5,6 +5,7 @@
   users.users.jeronimo = {
     isNormalUser = true;
     description = "jeronimo";
+  	linger=true;
     extraGroups = [ "networkmanager" "wheel" "gamemode" "audio"];
   };
 }

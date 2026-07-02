@@ -46,12 +46,12 @@
 
 
 
-	users.users.jeronimo.extraGroups = [ "docker" ];
+	#users.users.jeronimo.extraGroups = [ "docker" ];
 	virtualisation.docker.rootless = {
 		enable = true;
 		setSocketVariable = true;
 	};
-
+	virtualisation.docker.enable = false;
   #mysql para bd
   services.mysql={
   	enable = true;
