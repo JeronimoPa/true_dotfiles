@@ -2,12 +2,21 @@
 {
 	xdg.portal.enable = true;
 	xdg.portal.extraPortals = [pkgs.xdg-desktop-portal];
+	xdg.portal.config.common.default = "*";
+	
 	services.xserver.enable = true;
 	services.xserver.displayManager.lightdm = {
 		enable = true;
 		#greeter.enable = true;
 		greeters.gtk.enable = true;
 		
+	};
+	services.libinput = {
+		enable = true;
+		mouse = {
+			accelProfile = "flat";
+			accelSpeed = "0";
+		};
 	};
 	security.pam.services.lightdm.enableGnomeKeyring = true;
 	services.xserver.xkb = {                                                                   

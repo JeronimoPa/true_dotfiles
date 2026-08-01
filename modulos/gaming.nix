@@ -9,6 +9,7 @@
 			enable = true;
 		};
 	};
+	services.tailscale.enable = true;
 	hardware.uinput.enable = true;
 	services.udev.extraRules = ''
   # Nintendo Switch 2 Pro Controller
@@ -22,6 +23,8 @@
 	#hardware.graphics.extraPackages = [ pkgs.pkgsi686Linux.libglvnd ];
 
 	environment.systemPackages = with pkgs; [
+		trayscale
+
 		winetricks
 
 		cartridges
