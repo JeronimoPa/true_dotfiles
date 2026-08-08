@@ -49,6 +49,11 @@
 				cmp-nvim-lsp
 				luasnip
 				friendly-snippets
+				{
+					plugin = smear-cursor-nvim;
+					config = leer ./modulos/nvim/plugin/cursor.lua;
+					type="lua";
+				}
 
 #				nvim-treesitter-parsers.nix
 #				nvim-treesitter-parsers.vim

@@ -1,5 +1,9 @@
 {pkgs, config, ...}:
 {
+		#programs.zsh.enable = true;
+		programs.bash.enable = true;
+		users.users.jeronimo.shell = pkgs.bash;
+
         programs.bash.shellAliases = {
         #	"Practicas_BD"="mysql -h giibd.uca.es -u BD2425_u32912011 -p BD_tiendas";
         "nxinstall"="sudo nixos-rebuild switch --flake ~/.dotfiles";

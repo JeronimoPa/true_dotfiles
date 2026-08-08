@@ -1,4 +1,4 @@
-{ pkgs,lib ,... }:
+{ pkgs,lib ,config,... }:
 
 {
 
@@ -35,7 +35,21 @@
 					family = "Iosevka Nerd Font";
 					style = "regular";
 				};
-
+			terminal.shell.program="${pkgs.zsh}/bin/zsh";
+		};
+	};
+	programs.zsh={
+		enable = true;
+		antidote =
+		{
+			enable=true;
+			plugins=[
+			"dgr8akki/faahzsh"
+			];
+		};
+		oh-my-zsh={ 
+			enable = true;
+			theme = "jonathan";
 		};
 	};
 	#  nixpkgs.config.allowUnfree = true;
@@ -67,15 +81,15 @@
 			size = 24;
 		};
 	};	
-	programs.bash =
-		{
-			enable = true;
-			#			initExtra = ''
-			#if [[ "$TERM" == "alacritty"* ]]; then
-			#	eval "$(starship init bash)"
-			#fi
-			#			'';
-		};
+#	programs.bash =
+#		{
+#			enable = true;
+#			#			initExtra = ''
+#			#if [[ "$TERM" == "alacritty"* ]]; then
+#			#	eval "$(starship init bash)"
+#			#fi
+#			#			'';
+#		};
 
 	#programs.ahoviewer,
 	#programs.starship =
