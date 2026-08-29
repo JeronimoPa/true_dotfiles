@@ -29,9 +29,10 @@
 		enable = true;
 		enableSSHSupport = false;
 	};
-
+	services.ratbagd.enable = true;
 	security.polkit.enable = true;
 	environment.systemPackages = with pkgs; [
+		piper
 		networkmanagerapplet
 		python314
 		python314Packages.dbus-python
@@ -132,7 +133,7 @@
 		alsa.support32Bit = true;
 		pulse.enable = true;
 	};
-
+	# Auto-mute en alsa desactivado
 	#services.xserver.desktopManager.xfce.enable = true;
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;

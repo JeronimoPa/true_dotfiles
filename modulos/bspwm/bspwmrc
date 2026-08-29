@@ -7,7 +7,7 @@ set -x
 #if ! pgrep -x steam >/dev/null; then
 #    steam &
 #fi
-pkill picom;sleep 0.5;picom --config $HOME/.config/picom/picom.conf &
+#pkill picom;sleep 0.5;picom --config $HOME/.config/picom/picom.conf &
 
 
 OUTPUT=$(xrandr | grep " connected" | cut -d' ' -f1)
@@ -56,9 +56,9 @@ bspc rule -a Polybar layer=below
 pkill polybar
 
 
-MONITOR=$PRIMARY_MONITOR polybar left &
-MONITOR=$PRIMARY_MONITOR polybar center &
-MONITOR=$PRIMARY_MONITOR polybar right &
+#MONITOR=$PRIMARY_MONITOR polybar left &
+#MONITOR=$PRIMARY_MONITOR polybar center &
+#MONITOR=$PRIMARY_MONITOR polybar right &
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a mplayer2 state=floating

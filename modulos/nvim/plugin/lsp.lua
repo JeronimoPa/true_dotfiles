@@ -2,6 +2,11 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+vim.lsp.enable('qmlls')
+vim.lsp.config('qmlls',{
+	capabilities=capabilities,
+	cmd = {"qmlls", "-E"},
+})
 vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
     capabilities = capabilities,

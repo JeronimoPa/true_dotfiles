@@ -16,6 +16,7 @@
 				${builtins.readFile ./modulos/nvim/options.lua}
 			'';
 			extraPackages = with pkgs; [
+				kdePackages.qtdeclarative
 				himalaya						#mail
 				nixd							#nix
 				clang-tools						#c y cpp
@@ -39,6 +40,11 @@
 					plugin = nvim-lspconfig;
 					type="lua";
 					config = leer ./modulos/nvim/plugin/lsp.lua;
+				}
+				{
+					plugin = nvim-ufo;
+					config = leer ./modulos/nvim/plugin/pliegues.lua;
+					type="lua";
 				}
 				{
 					plugin = nvim-cmp;
