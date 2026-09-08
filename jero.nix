@@ -65,6 +65,7 @@
 	#	};
 	#enableBashIntegration = false;
 	#};
+	services.easyeffects.enable=true;
 	gtk = {
 		enable = true;
 		theme = {

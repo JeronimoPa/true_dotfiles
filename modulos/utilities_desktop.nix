@@ -34,9 +34,11 @@
 	programs.thunar.enable = true;
 	services.gvfs.enable = true;
 	services.udisks2.enable = true;
-
+	
+	#services.easyeffects.enable=true;
 	environment.systemPackages = with pkgs;
 	[
+		file-roller
 		xss-lock
 		arandr
 		xsecurelock
@@ -44,8 +46,9 @@
 		slop
 		maim
 		xdotool
-
-		easyeffects
+		
+		crosspipe
+		#easyeffects
 
 		bitwarden-desktop
 

@@ -24,5 +24,6 @@ vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_g
 vim.keymap.set('n', '<leader>fb', function() require('telescope.builtin').buffers() end, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, { desc = 'Telescope help tags' })
 
+vim.opt.foldlevel=99
 --nnoremap <C-d> <C-d>zz
 --nnoremap <C-u> <C-u>zz
