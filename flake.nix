@@ -39,7 +39,7 @@
 			./modulos/asignaturas.nix
 			./modulos/bluetooth.nix
 			#./modulos/gnome.nix
-			./modulos/kde.nix
+			#./modulos/kde.nix
 			];
 		in
 		{

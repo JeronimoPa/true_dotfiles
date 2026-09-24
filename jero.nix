@@ -66,6 +66,13 @@
 	#enableBashIntegration = false;
 	#};
 	services.easyeffects.enable=true;
+	home.pointerCursor = {
+		gtk.enable = true;
+		x11.enable = true;
+		package = pkgs.bibata-cursors; # o el paquete del tema que quieras
+		name = "Bibata-Modern-Ice";
+		size = 24;
+	};
 	gtk = {
 		enable = true;
 		theme = {
@@ -76,11 +83,11 @@
 			name = "Papirus-Dark";
 			package = pkgs.papirus-icon-theme;
 		};
-		cursorTheme = {
-			name = "Bibata-Modern-Ice";
-			package = pkgs.bibata-cursors;
-			size = 24;
-		};
+	#	cursorTheme = {
+	#		name = "Bibata-Modern-Ice";
+	#		package = pkgs.bibata-cursors;
+	#		size = 24;
+	#	};
 	};	
 #	programs.bash =
 #		{
