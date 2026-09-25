@@ -4,12 +4,12 @@
 		programs.bash.enable = true;
 		users.users.jeronimo.shell = pkgs.bash;
 
-        programs.bash.shellAliases = {
+        #programs.bash.shellAliases = {
         #	"Practicas_BD"="mysql -h giibd.uca.es -u BD2425_u32912011 -p BD_tiendas";
-        "nxinstall"="sudo nixos-rebuild switch --flake ~/.dotfiles";
-		"hminstall"="home-manager switch --flake ~/.dotfiles";
-		"actualizar"="sudo nix flake update;nxinstall;hminstall";
-		};
+        #"nxinstall"="sudo nixos-rebuild switch --flake ~/.dotfiles";
+	 	#"hminstall"="home-manager switch --flake ~/.dotfiles";
+	 	#"actualizar"="sudo nix flake update;nxinstall;hminstall";
+	 	#};
 
   environment.systemPackages = with pkgs; [
   	(writeShellScriptBin "Descargar_Música" ''
@@ -25,6 +25,13 @@
 			
 		nix-shell -p python312Packages.mutagen --run "python3 ~/musica.py '$param2' '$param3'"
 
+  '')
+
+  	(writeShellScriptBin "nxinstall" ''
+		sudo nixos-rebuild switch --flake ~/.dotfiles
+  '')
+  	(writeShellScriptBin "hminstall" ''
+		home-manager switch --flake ~/.dotfiles
   '')
 ];
 }

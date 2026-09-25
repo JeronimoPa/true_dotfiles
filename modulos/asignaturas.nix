@@ -4,8 +4,8 @@
   	environment.systemPackages = with pkgs; [
 				#ISI
                 lazydocker
-				maven
-				jetbrains.idea
+				#maven
+				#jetbrains.idea
 
 				#IA
                 clips
@@ -57,5 +57,7 @@
   	enable = true;
   	package = pkgs.mariadb;
   };
+  #postgresql para ABD
+  services.postgresql.enable = true;
 }
 
