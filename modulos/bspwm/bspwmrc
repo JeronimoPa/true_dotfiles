@@ -10,6 +10,8 @@ set -x
 #pkill picom;sleep 0.5;picom --config $HOME/.config/picom/picom.conf &
 nm-applet & disown
 
+eval "$(gnome-keyring-daemon --start --components=secrets)"
+
 OUTPUT=$(xrandr | grep " connected" | cut -d' ' -f1)
 MODE=$(xrandr | grep "^$OUTPUT " -A5 | grep '*' | awk '{print $1}')
 

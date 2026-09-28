@@ -32,6 +32,8 @@
 	services.ratbagd.enable = true;
 	security.polkit.enable = true;
 	environment.systemPackages = with pkgs; [
+		openssl
+
 		piper
 		networkmanagerapplet
 		python314
@@ -41,9 +43,7 @@
 		impala
 		unzip
 
-		keepassxc
-		pass
-		
+		seahorse
 
 
 		xclip

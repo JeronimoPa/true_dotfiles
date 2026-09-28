@@ -18,7 +18,9 @@
 			accelSpeed = "0";
 		};
 	};
-	security.pam.services.lightdm.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
+
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 	services.xserver.xkb = {                                                                   
 		layout = "es";                                                                           
 		variant = "";                                                                            
