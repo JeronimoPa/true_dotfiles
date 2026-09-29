@@ -9,6 +9,7 @@ set -x
 #fi
 if pgrep -x picom > /dev/null; then
 	pkill picom
+    while pgrep -x picom > /dev/null; do sleep 0.01; done
 fi
 picom --config $HOME/.config/picom/picom.conf &
 nm-applet & disown
@@ -61,9 +62,9 @@ bspc rule -a Polybar layer=below
 pkill polybar
 
 
-#MONITOR=$PRIMARY_MONITOR polybar left &
-#MONITOR=$PRIMARY_MONITOR polybar center &
-#MONITOR=$PRIMARY_MONITOR polybar right &
+MONITOR=$PRIMARY_MONITOR polybar left &
+MONITOR=$PRIMARY_MONITOR polybar center &
+MONITOR=$PRIMARY_MONITOR polybar right &
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a mplayer2 state=floating
