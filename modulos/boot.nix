@@ -11,7 +11,7 @@
     enable = true;
 	useOSProber = true;
     efiSupport = true;
-    device = "nodev";  # <--- very important: only install to the NVMe
+    device = "nodev"; 
     efiInstallAsRemovable = false;
     };
   boot.loader.grub.configurationLimit = 2;
@@ -19,9 +19,6 @@
 	#networking.useDHCP = false;
 
 	hardware.enableAllFirmware = true;
-	#	services.logind.settings.Login = ''
-	#	HandleBrightnessKeys=yes
-	#'';
 	services.logind = {
 		settings.Login.HandlePowerKey= "ignore";
 		#powerKeyLongPress = "ignore"; # optional but recommended
