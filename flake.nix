@@ -10,9 +10,11 @@
 		};
 		nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 		nvf.url = "github:notashelf/nvf/v0.8";
+		disko.url = "github:nix-community/disko/latest";
+  		disko.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = {self, nixpkgs,nixpkgs-yuzu, home-manager,nixpkgs-unstable,nvf, ...}:
+	outputs = {self, nixpkgs,nixpkgs-yuzu,disko, home-manager,nixpkgs-unstable,nvf, ...}:
 		let
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -50,7 +52,8 @@
 					    inherit pkgs-yuzu pkgs-unstable;
 					};
 					modules =base++[
-
+						disko.nixosModules.disko
+						./portatil/disko.nix
 						./portatil/hardware-configuration.nix
 						./portatil/amd.nix
 						./portatil/portatil.nix
