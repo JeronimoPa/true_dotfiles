@@ -59,7 +59,6 @@
 		parsec-bin
 		#clases 
 		home-manager
-		anydesk   
 		#entornos de desarrollo
 		vscodium
 

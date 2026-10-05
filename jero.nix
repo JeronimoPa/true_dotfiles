@@ -40,6 +40,7 @@
 	};
 	programs.zsh={
 		enable = true;
+		#enableCompletion = true;
 		antidote =
 		{
 			enable=true;

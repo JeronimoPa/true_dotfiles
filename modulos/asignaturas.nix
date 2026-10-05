@@ -1,43 +1,46 @@
 {pkgs,config, ... }:
 {
 
-  	environment.systemPackages = with pkgs; [
-				#ISI
-                lazydocker
-				#maven
-				#jetbrains.idea
+	environment.systemPackages = with pkgs; [
+#ISI
+		lazydocker
+#maven
+#jetbrains.idea
 
-				#IA
-                clips
-                vscode
-                
-                #DA
-                gnumake
-                gnuplot
-                xdot
-                gdb
-                
-				#colaborador
-				clang_multi
-				clang-tools
-				cbmc
-				
+#IA
+			clips
+			vscode
 
+#DA
+			gnumake
+			gnuplot
+			xdot
+			gdb
+
+#colaborador
+			clang_multi
+			clang-tools
+			cbmc
 
 
-				#c y cpp
-				unityhub
-				dotnet-sdk_9
 
 
-				nodejs
-				postman
-				mongodb-compass
-				android-studio
-        ];
-		programs.nix-ld.enable = true;
-		programs.nix-ld.libraries = with pkgs;[
-			llvmPackages_18.llvm
+#c y cpp
+			unityhub
+			dotnet-sdk_9
+
+#PNET
+			nodejs
+			postman
+			mongodb-compass
+			android-studio
+
+#ABD y TABD
+			dbeaver-bin
+			];
+	programs.nix-ld.enable = true;
+	programs.nix-ld.libraries = with pkgs;[
+		llvmPackages_18.llvm
 			jdk
 			glibc_multi
 			freetype
@@ -46,18 +49,35 @@
 
 
 
-	#users.users.jeronimo.extraGroups = [ "docker" ];
+#users.users.jeronimo.extraGroups = [ "docker" ];
 	virtualisation.docker.rootless = {
 		enable = true;
 		setSocketVariable = true;
 	};
 	virtualisation.docker.enable = false;
-  #mysql para bd
-  services.mysql={
-  	enable = true;
-  	package = pkgs.mariadb;
-  };
-  #postgresql para ABD
-  services.postgresql.enable = true;
+#mysql para bd
+	services.mysql={
+		enable = true;
+		package = pkgs.mariadb;
+	};
+#postgresql para ABD
+	services.postgresql=
+	{
+		enable = true;
+		ensureDatabases = [ "jeronimo" ];
+		ensureUsers = [
+		  {
+		    name = "jeronimo";
+		    ensureDBOwnership = true;
+			ensureClauses={
+				superuser=true;
+				createrole = true;
+				createdb = true;
+		  	};
+		  }
+		]
+		;
+	};
+
 }
 

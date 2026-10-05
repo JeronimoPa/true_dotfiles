@@ -1,53 +1,4 @@
 {lib,...}:
-#{
-#  disko.devices = {
-#    disk.main = {
-#      type = "disk";
-#      device = "/dev/disk/by-id/TU-DISCO";
-#      content = {
-#        type = "gpt";
-#        partitions = {
-#          ESP = {
-#            size = "1G";
-#            type = "EF00";
-#            content = {
-#              type = "filesystem";
-#              format = "vfat";
-#              mountpoint = "/boot";
-#              mountOptions = [ "umask=0077" ];
-#            };
-#          };
-#
-#          swap = {
-#            size = "8G";
-#            content = {
-#              type = "swap";
-#              discardPolicy = "both";
-#            };
-#          };
-#
-#          root = {
-#            size = "100G";
-#            content = {
-#              type = "filesystem";
-#              format = "ext4";
-#              mountpoint = "/";
-#            };
-#          };
-#
-#          games = {
-#            size = "100%";   # todo lo que quede libre
-#            content = {
-#              type = "filesystem";
-#              format = "ext4";
-#              mountpoint = "/games";
-#            };
-#          };
-#        };
-#      };
-#    };
-#  };
-#}
 {
 	disko.devices = {
 		disk = {
@@ -58,7 +9,7 @@
 					type = "gpt";
 					partitions = {
 						ESP = {
-							priority=2;
+							priority=1;
 							type = "EF00";
 							size = "1G";
 							content = {

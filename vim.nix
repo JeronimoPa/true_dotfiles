@@ -111,11 +111,11 @@
 					type="lua";
 					config = leer ./modulos/nvim/plugin/telescope.lua;
 				}
-				{
-					plugin = obsidian-nvim;
-					type="lua";
-					config = leer ./modulos/nvim/plugin/obsidian.lua;
-				}
+				#{
+				#	plugin = obsidian-nvim;
+				#	type="lua";
+				#	config = leer ./modulos/nvim/plugin/obsidian.lua;
+				#}
 				{
 					plugin = nvim-autopairs;
 					type="lua";

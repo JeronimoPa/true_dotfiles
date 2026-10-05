@@ -53,7 +53,7 @@
 					};
 					modules =base++[
 						disko.nixosModules.disko
-						#./portatil/disko.nix
+						./portatil/disko.nix
 						./portatil/hardware-configuration.nix
 						./portatil/amd.nix
 						./portatil/portatil.nix
