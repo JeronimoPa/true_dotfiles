@@ -72,4 +72,4 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a slop manage=off
 
-
+pgrep -x zapzap > /dev/null || zapzap &

@@ -1,9 +1,11 @@
 {pkgs, config, ...}:
 {
+	#para fightcade creo
 	xdg.portal.enable = true;
 	xdg.portal.extraPortals = [pkgs.xdg-desktop-portal];
 	xdg.portal.config.common.default = "*";
 	
+	#lightdm
 	services.xserver.enable = true;
 	services.xserver.displayManager.lightdm = {
 		enable = true;
@@ -11,6 +13,7 @@
 		greeters.gtk.enable = true;
 		
 	};
+	#raton del pc principal
 	services.libinput = {
 		enable = true;
 		mouse = {
@@ -18,9 +21,11 @@
 			accelSpeed = "0";
 		};
 	};
-  services.gnome.gnome-keyring.enable = true;
 
-  security.pam.services.lightdm.enableGnomeKeyring = true;
+	#keyring
+	services.gnome.gnome-keyring.enable = true;
+
+	security.pam.services.lightdm.enableGnomeKeyring = true;
 	services.xserver.xkb = {                                                                   
 		layout = "es";                                                                           
 		variant = "";                                                                            
@@ -37,9 +42,35 @@
 	services.gvfs.enable = true;
 	services.udisks2.enable = true;
 	
+	services.dunst={
+		enableX11 = true;
+		enable = true;
+		settings = {
+			global = {
+				font = "Iosevka Nerd Font 24";
+				width = 500;
+				height = 300;
+				offset = "10x10";
+				origin = "top-right";
+				frame_width = 5;
+				corner_radius = 6;
+			};
+			urgency_normal = {
+				background	=	"#272727";
+				foreground	=	"#fd7f18";
+				frame_color	=	"#cb231c";
+				fullscreen = 	"delay";
+				timeout = 		5;
+			};
+		};
+		
+	};
+
+
 	#services.easyeffects.enable=true;
 	environment.systemPackages = with pkgs;
 	[
+		zapzap
 		file-roller
 		xss-lock
 		arandr
@@ -85,8 +116,4 @@
 
 
 	];
-	environment.variables = {
-  		XCURSOR_THEME = "Bibata-Modern-Ice";
-  		XCURSOR_SIZE = "24";
-};
 }

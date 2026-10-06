@@ -39,16 +39,16 @@
 				{
 					plugin = nvim-lspconfig;
 					type="lua";
-					config = leer ./modulos/nvim/plugin/lsp.lua;
+					config = leer ../modulos/nvim/plugin/lsp.lua;
 				}
 				{
 					plugin = nvim-ufo;
-					config = leer ./modulos/nvim/plugin/pliegues.lua;
+					config = leer ../modulos/nvim/plugin/pliegues.lua;
 					type="lua";
 				}
 				{
 					plugin = nvim-cmp;
-					config = leer ./modulos/nvim/plugin/cmp.lua;
+					config = leer ../modulos/nvim/plugin/cmp.lua;
 					type="lua";
 				}
 				cmp_luasnip
@@ -57,7 +57,7 @@
 				friendly-snippets
 				{
 					plugin = smear-cursor-nvim;
-					config = leer ./modulos/nvim/plugin/cursor.lua;
+					config = leer ../modulos/nvim/plugin/cursor.lua;
 					type="lua";
 				}
 
@@ -97,19 +97,19 @@
 				{
 					plugin = neo-tree-nvim;
 					type="lua";
-					config = leer ./modulos/nvim/plugin/neo-tree.lua;
+					config = leer ../modulos/nvim/plugin/neo-tree.lua;
 				}
 				{
 					plugin = lualine-nvim;
 					type="lua";
-					config = leer ./modulos/nvim/plugin/lualine.lua;
+					config = leer ../modulos/nvim/plugin/lualine.lua;
 				}
 				#fin_estetica
 				#miscelanea
 				{
 					plugin = telescope-nvim;
 					type="lua";
-					config = leer ./modulos/nvim/plugin/telescope.lua;
+					config = leer ../modulos/nvim/plugin/telescope.lua;
 				}
 				#{
 				#	plugin = obsidian-nvim;
@@ -119,13 +119,13 @@
 				{
 					plugin = nvim-autopairs;
 					type="lua";
-					config = leer ./modulos/nvim/plugin/autopair.lua;
+					config = leer ../modulos/nvim/plugin/autopair.lua;
 				}
 				himalaya-vim
 				{
 					plugin = alpha-nvim;
 					type="lua";
-					config = leer ./modulos/nvim/plugin/alpha.lua;
+					config = leer ../modulos/nvim/plugin/alpha.lua;
 				}
 				nvim-web-devicons
 				#fin_miscelanea

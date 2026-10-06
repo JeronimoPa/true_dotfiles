@@ -4,7 +4,7 @@
 
 	nixpkgs.config.allowUnfree = true;
 	imports =
-		[./vim.nix];
+		[./home-manager/vim.nix];
 	# Home Manager needs a bit of information about you and the paths it should
 	# manage.
 	home.username = "jeronimo";
