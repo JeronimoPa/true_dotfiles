@@ -139,6 +139,33 @@
 		enable = true;
 
 		policies = {
+			Bookmarks=[
+			{
+				Title = "Campus Virtual";
+				URL = "https://campusvirtual.uca.es/";
+				Placement = "toolbar";
+			}
+			{
+				Title = "Claude";
+				URL = "https://claude.ai/new";
+				Placement = "toolbar";
+			}
+			{
+				Title = "Gmail";
+				URL = "https://mail.google.com/mail/u/0/#inbox";
+				Placement = "toolbar";
+			}
+			{
+				Title = "NixOS Search";
+				URL = "https://search.nixos.org/";
+				Placement = "toolbar";
+			}
+			{
+				Title = "MyNixOS";
+				URL = "https://mynixos.com/";
+				Placement = "toolbar";
+			}
+			];
 			ExtensionSettings = {
 				"uBlock0@raymondhill.net" = {
 					installation_mode = "force_installed";
