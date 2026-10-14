@@ -10,7 +10,7 @@ WINDOW_ID=${XSCREENSAVER_WINDOW}
 # --fullscreen y --borderless eliminan los bordes y la barra de título.
 # --image-bg black establece un fondo negro por si la imagen no cubre toda la pantalla.
 # --zoom fill ajusta la imagen para que cubra toda la pantalla sin deformarse.
-feh --window-id "$WINDOW_ID" \
+exec feh --window-id "$WINDOW_ID" \
     --fullscreen \
     --borderless \
     --image-bg black \

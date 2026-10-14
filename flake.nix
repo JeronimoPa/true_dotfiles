@@ -3,23 +3,23 @@
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-26.05";
-		nixpkgs-yuzu.url = "nixpkgs/nixos-24.11";
 		home-manager = {
 			url = "github:nix-community/home-manager/release-26.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 		nvf.url = "github:notashelf/nvf/v0.8";
-		disko.url = "github:nix-community/disko/latest";
-  		disko.inputs.nixpkgs.follows = "nixpkgs";
+		disko={
+			url = "github:nix-community/disko/latest";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = {self, nixpkgs,nixpkgs-yuzu,disko, home-manager,nixpkgs-unstable,nvf, ...}:
+	outputs = {self, nixpkgs,disko, home-manager,nixpkgs-unstable,nvf, ...}:
 		let
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
 			pkgs=nixpkgs.legacyPackages.${system};
-			pkgs-yuzu = nixpkgs-yuzu.legacyPackages.${system};
 			pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
 			base = [
 			./users.nix
@@ -49,7 +49,7 @@
 				PortatilNegrozma = lib.nixosSystem {
 					inherit system;#system=system
 					specialArgs = {
-					    inherit pkgs-yuzu pkgs-unstable;
+					    inherit pkgs-unstable;
 					};
 					modules =base++[
 						disko.nixosModules.disko
@@ -57,13 +57,11 @@
 						./portatil/hardware-configuration.nix
 						./portatil/amd.nix
 						./portatil/portatil.nix
-                                                
 					];
 				};
 				Sobremesa = lib.nixosSystem {
 					inherit system;
 					specialArgs = {
-					    pkgs-yuzu = pkgs-yuzu;
 						inherit pkgs-unstable;
 					};
 					modules =base++[
@@ -75,9 +73,6 @@
 				};
 				servidor-nixos = lib.nixosSystem {
 					inherit system;
-					specialArgs = {
-					    inherit pkgs-yuzu;
-					};
 					modules = [
 						./modulos/ubicacion.nix
 						./servidor/docker.nix
@@ -94,9 +89,6 @@
 			homeConfigurations."jeronimo" = home-manager.lib.homeManagerConfiguration
 			{
 				inherit pkgs;
-				#specialArgs = {
-				#    pkgs-yuzu = pkgs-yuzu;  
-				#};
 				modules =[
 					./jero.nix
 				];

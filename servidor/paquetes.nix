@@ -1,4 +1,4 @@
-{pkgs,pkgs-yuzu, ...}:
+{pkgs, ...}:
 {
 	environment.systemPackages = with pkgs; [
 		vim

@@ -3,7 +3,7 @@ rm -f ~/.bspwmrc.log
 exec &>> ~/.bspwmrc.log
 set -x
 
-
+steam -silent &
 #if ! pgrep -x steam >/dev/null; then
 #    steam &
 #fi

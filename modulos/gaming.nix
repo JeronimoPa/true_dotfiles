@@ -69,12 +69,12 @@
 	programs={
 		steam = {
 			enable = true;
-			extraPackages = with pkgs; [
-			pkgs.pkgsi686Linux.libGL 
-			pkgs.libGL
-			pkgs.mesa
-			pkgs.pkgsi686Linux.mesa
-			];
+			#extraPackages = with pkgs; [
+			#pkgs.pkgsi686Linux.libGL 
+			#pkgs.libGL
+			#pkgs.mesa
+			#pkgs.pkgsi686Linux.mesa
+			#];
 			protontricks.enable = true;
 		};
 		gamemode.enable = true;
