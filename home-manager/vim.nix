@@ -47,6 +47,11 @@
 					type="lua";
 				}
 				{
+					plugin = nvim-dap-ui;
+					config = leer ./nvim/plugin/debugger.lua;
+					type="lua";
+				}
+				{
 					plugin = nvim-cmp;
 					config = leer ./nvim/plugin/cmp.lua;
 					type="lua";
