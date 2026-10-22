@@ -198,7 +198,7 @@
 	home.sessionVariables = {
 		# EDITOR = "emacs";
 		MANGOHUD_CONFIGFILE="$HOME/.config/MangoHud/MangoHud.conf";
-		XSECURELOCK_SAVER="$HOME/.config/xsecurelock";
+		#XSECURELOCK_SAVER="$HOME/.config/xsecurelock";
 	};
 
 	# Let Home Manager install and manage itself.

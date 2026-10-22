@@ -18,8 +18,7 @@ super + alt + p
 	reboot
 
 super + XF86PowerOff
-	xsecurelock
-
+	i3lock
 super + a
     maim -i $(xdotool getactivewindow) ~/Imagenes/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
 

@@ -65,16 +65,22 @@
 		};
 		
 	};
-
+	programs.i3lock.enable = true;   # instala i3lock y configura PAM
+		programs.xss-lock = {
+			enable = true;
+			lockerCommand = "${pkgs.i3lock}/bin/i3lock -c 000000";
+		};
 
 	#services.easyeffects.enable=true;
 	environment.systemPackages = with pkgs;
 	[
+		xinput
+
+		zenity
+
 		zapzap
 		file-roller
-		xss-lock
 		arandr
-		xsecurelock
 
 		slop
 		maim

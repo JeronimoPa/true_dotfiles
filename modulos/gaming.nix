@@ -48,8 +48,6 @@
 		#gui para mangohud
 		goverlay
 
-		parsec-bin
-
 		xdg-utils
 
 		ryubing

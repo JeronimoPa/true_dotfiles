@@ -46,6 +46,7 @@
 
 
 	environment.systemPackages = with pkgs; [
+		zip
 
 		openssl
 
@@ -71,7 +72,6 @@
 
 		tree
 		#neovim
-		parsec-bin
 		#clases 
 		home-manager
 		#entornos de desarrollo
@@ -235,17 +235,17 @@
 		pulse.enable = true;
 		wireplumber.enable = true;
 	};
-	services.pipewire.wireplumber.extraConfig."51-disable-cards" = {
-		"monitor.alsa.rules" = [
-		{
-			matches = [
-			{ "device.name" = "alsa_card.pci-0000_03_00.1"; }
-			{ "device.name" = "alsa_card.pci-0000_07_00.6"; }
-			];
-			actions.update-props = { "device.disabled" = true; };
-		}
-		];
-	};
+	#services.pipewire.wireplumber.extraConfig."51-disable-cards" = {
+	#	"monitor.alsa.rules" = [
+	#	{
+	#		matches = [
+	#		{ "device.name" = "alsa_card.pci-0000_03_00.1"; }
+	#		{ "device.name" = "alsa_card.pci-0000_07_00.6"; }
+	#		];
+	#		actions.update-props = { "device.disabled" = true; };
+	#	}
+	#	];
+	#};
 # Auto-mute en alsa desactivado
 #services.xserver.desktopManager.xfce.enable = true;
 # Enable touchpad support (enabled default in most desktopManager).

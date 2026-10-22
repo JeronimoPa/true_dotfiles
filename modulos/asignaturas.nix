@@ -37,7 +37,11 @@
 
 #ABD y TABD
 			dbeaver-bin
+			k3d
+			kubectl
+			k9s
 			];
+			
 	programs.nix-ld.enable = true;
 	programs.nix-ld.libraries = with pkgs;[
 		llvmPackages_18.llvm
@@ -45,6 +49,8 @@
 			glibc_multi
 			freetype
 			pkgs.pkgsi686Linux.bzip2
+
+	
 	];	
 
 
@@ -55,6 +61,7 @@
 		setSocketVariable = true;
 	};
 	virtualisation.docker.enable = false;
+	systemd.services."user@".serviceConfig.Delegate = "cpu cpuset io memory pids";
 #mysql para bd
 	services.mysql={
 		enable = true;

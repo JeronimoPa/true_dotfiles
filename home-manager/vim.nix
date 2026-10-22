@@ -28,6 +28,7 @@
 				texlab							#latex
 				ripgrep							#para live_grep
 				poppler-utils
+				vscode-extensions.vscjava.vscode-java-debug
 			];
 			plugins = with pkgs.vimPlugins; [
 				#markdown
@@ -46,6 +47,7 @@
 					config = leer ./nvim/plugin/pliegues.lua;
 					type="lua";
 				}
+				nvim-jdtls
 				{
 					plugin = nvim-dap-ui;
 					config = leer ./nvim/plugin/debugger.lua;
@@ -99,11 +101,11 @@
 					type="lua";
   					config = "vim.cmd.colorscheme('gruvbox')";
 				}
-				{
-					plugin = neo-tree-nvim;
-					type="lua";
-					config = leer ./nvim/plugin/neo-tree.lua;
-				}
+				#{
+				#	plugin = neo-tree-nvim;
+				#	type="lua";
+				#	config = leer ./nvim/plugin/neo-tree.lua;
+				#}
 				{
 					plugin = lualine-nvim;
 					type="lua";

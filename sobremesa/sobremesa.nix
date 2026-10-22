@@ -21,10 +21,10 @@
 	];	
 	systemd.services.disable-alsa-auto-mute = {
 		description = "Disable ALSA Auto-Mute for ALC897";
-
+    
 		wantedBy = [ "sound.target" ];
 		after = [ "sound.target" ];
-
+    
 		serviceConfig = {
 			Type = "oneshot";
 			ExecStart =
