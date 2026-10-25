@@ -23,6 +23,8 @@
 	#hardware.graphics.extraPackages = [ pkgs.pkgsi686Linux.libglvnd ];
 
 	environment.systemPackages = with pkgs; [
+		#(pkgs.tetrio-desktop.override { withTetrioPlus = true; })	
+		#tetrio-plus
 		trayscale
 
 		winetricks

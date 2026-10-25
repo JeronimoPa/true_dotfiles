@@ -1,5 +1,6 @@
 {pkgs,lib, ...}:
 {
+	boot.kernel.sysctl."vm.swappiness" = 10;
 	environment.sessionVariables = {
 		PATH = [ "$HOME/.local/bin" ];
 	};

@@ -84,12 +84,18 @@
 			name = "Papirus-Dark";
 			package = pkgs.papirus-icon-theme;
 		};
-	#	cursorTheme = {
-	#		name = "Bibata-Modern-Ice";
-	#		package = pkgs.bibata-cursors;
-	#		size = 24;
-	#	};
-	};	
+		gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+		gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
+	};
+
+# Para apps GTK4/libadwaita y navegadores que leen esta preferencia
+	dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
+	qt = {
+		enable = true;
+		platformTheme.name = "gtk";   # las apps Qt copian el tema GTK
+			style.name = "adwaita-dark";
+	};
 #	programs.bash =
 #		{
 #			enable = true;

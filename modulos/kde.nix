@@ -22,5 +22,24 @@
 		kdePackages.plasma-browser-integration # Integrate browsers into the Plasma Desktop
 		kdePackages.qrca # QR code scanner for Plasma Mobile
 		mpv
+		kdePackages.aurorae
+		kdePackages.plasma-browser-integration
+		kdePackages.plasma-workspace-wallpapers
+		kdePackages.konsole
+		kdePackages.kwin-x11
+		#(lib.getBin qttools) # Expose qdbus in PATH
+		kdePackages.ark
+		kdePackages.elisa
+		kdePackages.gwenview
+		kdePackages.okular
+		kdePackages.kate
+		kdePackages.ktexteditor # provides elevated actions for kate
+		kdePackages.khelpcenter
+		kdePackages.dolphin
+		kdePackages.baloo-widgets # baloo information in Dolphin
+		kdePackages.dolphin-plugins
+		kdePackages.spectacle
+		kdePackages.ffmpegthumbs
+		kdePackages.krdp
 	];
 }
