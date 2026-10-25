@@ -167,7 +167,7 @@
 
 		".config/misc-scripts/tmuxinator-ui".source = 	./modulos/bspwm/tmuxinator-ui;
 		".config/sxhkd/sxhkdrc".source = 				./modulos/bspwm/sxhkdrc;
-		".config/xsecurelock".source = 					./modulos/bspwm/xsecurelock;
+		#".config/xsecurelock".source = 					./modulos/bspwm/xsecurelock;
 
 		".config/tmux/tmux.conf".source = 				./modulos/bspwm/tmux.conf;
 		".config/polybar/config.ini".source = 			./modulos/bspwm/externo.ini;

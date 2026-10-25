@@ -65,11 +65,14 @@
 		};
 		
 	};
-	programs.i3lock.enable = true;   # instala i3lock y configura PAM
-		programs.xss-lock = {
-			enable = true;
-			lockerCommand = "${pkgs.i3lock}/bin/i3lock -c 000000";
-		};
+	programs.i3lock = {
+		enable = true;
+		package = pkgs.i3lock-color;
+	};
+	programs.xss-lock = {
+		enable = true;
+		lockerCommand = "${pkgs.i3lock-color}/bin/i3lock-color -i /home/jeronimo/.config/fotos/kid-named-pubert.jpg --scale";
+	};
 
 	#services.easyeffects.enable=true;
 	environment.systemPackages = with pkgs;

@@ -224,15 +224,10 @@
 	services.printing.enable = true;
 
 # Enable sound with pipewire.
-	services.pulseaudio.enable = false;
 	security.rtkit.enable = true;
+	services.pulseaudio.enable = false;
 	services.pipewire = {
-		audio.enable = true;
 		enable = true;
-		jack.enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
 		wireplumber.enable = true;
 	};
 	#services.pipewire.wireplumber.extraConfig."51-disable-cards" = {
