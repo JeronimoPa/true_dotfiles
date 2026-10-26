@@ -47,6 +47,7 @@
 
 
 	environment.systemPackages = with pkgs; [
+		pulseaudio
 		zip
 
 		openssl

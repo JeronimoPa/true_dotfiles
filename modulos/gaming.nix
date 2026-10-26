@@ -1,4 +1,4 @@
-{ pkgs, pkgs-yuzu,pkgs-unstable,lib,... }:
+{ config, pkgs, lib,... }:
 
 {
 	services = {
@@ -75,6 +75,7 @@
 			#pkgs.mesa
 			#pkgs.pkgsi686Linux.mesa
 			#];
+			fontPackages = config.fonts.packages;
 			protontricks.enable = true;
 		};
 		gamemode.enable = true;
