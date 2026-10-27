@@ -4,7 +4,7 @@ require("himalaya").setup({
   },
   split_ratio = 0.4, -- email list takes 40% when split
   wrap_folder_navigation = true, -- wrap to first/last when navigating
-  icons_enabled = false, -- use nerd font icons for folders
+  icons_enabled = true, -- use nerd font icons for folders
   custom_select = nil, -- custom picker hook: function(items, opts, on_choice)
   keymaps = {
     listing = {

@@ -1,10 +1,22 @@
-{ pkgs,lib ,... }:
+{ pkgs,lib,pkgs-unstable,... }:
 {
 	programs.neovim = 
 		let
 			#toLua = str: "lua << EOF\n${str}\nEOF\n";
 			toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 			leer = file: builtins.readFile file;
+
+			himalaya-nvim = pkgs.vimUtils.buildVimPlugin {
+				pname = "himalaya-nvim";
+				version = "unstable";
+				src = pkgs.fetchFromGitHub {
+					owner = "knownasnaffy";        # el autor del plugin Lua
+						repo = "himalaya.nvim";   # nombre exacto del repo
+						rev = "main";
+					hash = "sha256-hMGa9iTEvODyOEj9gwa082oTTEPpuCps5OK7oNsy2sM="; # Nix te dará el hash real al compilar
+				};
+				dependencies = [ pkgs.vimPlugins.nui-nvim ];
+			};
 		in
 			{
 			enable = true;
@@ -17,7 +29,6 @@
 			'';
 			extraPackages = with pkgs; [
 				kdePackages.qtdeclarative
-				himalaya						#mail
 				nixd							#nix
 				clang-tools						#c y cpp
 				luajitPackages.lua-lsp			#lua
@@ -31,7 +42,7 @@
 				poppler-utils
 				vscode-extensions.vscjava.vscode-java-debug
 				tree-sitter
-			];
+			]++[pkgs-unstable.himalaya];
 			plugins = with pkgs.vimPlugins; [
 				#markdown
 				markdown-preview-nvim
@@ -85,6 +96,7 @@
 							p.cpp
 							p.c_sharp
 							p.markdown
+							p.terraform
 					]);
 				#	type="lua";
 				#	config = builtins.readFile ./modulos/nvim/plugin/treesitter.lua;
@@ -111,8 +123,9 @@
 				}
 				#fin_estetica
 				#miscelanea
+
 				{
-					plugin = himalaya-vim;
+					plugin = himalaya-nvim;
 					type="lua";
 					config = leer ./nvim/plugin/himalaya.lua;
 				}
@@ -131,7 +144,6 @@
 					type="lua";
 					config = leer ./nvim/plugin/autopair.lua;
 				}
-				himalaya-vim
 				{
 					plugin = alpha-nvim;
 					type="lua";

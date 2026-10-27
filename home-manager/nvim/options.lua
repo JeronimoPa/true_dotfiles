@@ -19,6 +19,8 @@ vim.o.termguicolors = true
 
 vim.o.mouse = ''
 
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]])
+
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end, { desc = 'Telescope find files' })

@@ -89,6 +89,9 @@
 			homeConfigurations."jeronimo" = home-manager.lib.homeManagerConfiguration
 			{
 				inherit pkgs;
+				extraSpecialArgs = {
+					inherit pkgs-unstable;
+				};
 				modules =[
 					./jero.nix
 				];
