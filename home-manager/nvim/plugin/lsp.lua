@@ -7,6 +7,11 @@ vim.lsp.config('qmlls',{
 	capabilities=capabilities,
 	cmd = {"qmlls", "-E"},
 })
+
+vim.lsp.enable('terraformls')
+vim.lsp.config('terraformls',{
+	capabilities=capabilities,
+})
 vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
     capabilities = capabilities,

@@ -26,9 +26,11 @@
 				omnisharp-roslyn				#unity
 				vscode-langservers-extracted	#web dev
 				texlab							#latex
+				terraform-ls
 				ripgrep							#para live_grep
 				poppler-utils
 				vscode-extensions.vscjava.vscode-java-debug
+				tree-sitter
 			];
 			plugins = with pkgs.vimPlugins; [
 				#markdown
@@ -68,16 +70,6 @@
 					type="lua";
 				}
 
-#				nvim-treesitter-parsers.nix
-#				nvim-treesitter-parsers.vim
-#				nvim-treesitter-parsers.bash
-#				nvim-treesitter-parsers.lua
-#				nvim-treesitter-parsers.python
-#				nvim-treesitter-parsers.java
-#				nvim-treesitter-parsers.c
-#				nvim-treesitter-parsers.cpp
-#				nvim-treesitter-parsers.c_sharp
-#				nvim-treesitter-parsers.markdown
 				
 				{
 					plugin = nvim-treesitter.withPlugins (p: [
@@ -99,7 +91,10 @@
 				{
 					plugin = gruvbox-nvim;
 					type="lua";
-  					config = "vim.cmd.colorscheme('gruvbox')";
+					config = ''
+						require("gruvbox").setup()
+						vim.cmd.colorscheme('gruvbox')
+						'';
 				}
 				#{
 				#	plugin = neo-tree-nvim;

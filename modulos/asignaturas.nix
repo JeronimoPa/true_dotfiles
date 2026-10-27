@@ -37,9 +37,10 @@
 
 #ABD y TABD
 			dbeaver-bin
-			k3d
-			kubectl
-			k9s
+
+
+
+			terraform
 			];
 			
 	programs.nix-ld.enable = true;
@@ -61,7 +62,7 @@
 		setSocketVariable = true;
 	};
 	virtualisation.docker.enable = false;
-	systemd.services."user@".serviceConfig.Delegate = "cpu cpuset io memory pids";
+	#systemd.services."user@".serviceConfig.Delegate = "cpu cpuset io memory pids";
 #mysql para bd
 	services.mysql={
 		enable = true;

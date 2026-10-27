@@ -66,7 +66,7 @@
 	#	};
 	#enableBashIntegration = false;
 	#};
-	services.easyeffects.enable=true;
+	#services.easyeffects.enable=true;
 	home.pointerCursor = {
 		gtk.enable = true;
 		x11.enable = true;

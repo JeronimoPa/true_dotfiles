@@ -3,7 +3,7 @@ rm -f ~/.bspwmrc.log
 exec &>> ~/.bspwmrc.log
 set -x
 
-steam -silent > ~/.cache/steam-startup.log 2>&1 &
+#steam -silent &> ~/.cache/steam-startup.log 2>&1 &
 #if ! pgrep -x steam >/dev/null; then
 #    steam &
 #fi

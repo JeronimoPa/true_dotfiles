@@ -40,17 +40,11 @@ cmp.setup {
         end, { 'i', 's' }),
     },
 	window = {
-      completion = cmp.config.window.bordered({
-      col_offset = 0,
-      side_padding = 0,
-	--  winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
-    }),
-	
-      documentation = cmp.config.window.bordered({
-      col_offset = 0,
-      side_padding = 0,
-	--  winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder",
-    }),
+		completion = {
+			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+			col_offset = -3,
+			side_padding = 0,
+		},
     },
     sources = {
         { name = 'nvim_lsp' },
