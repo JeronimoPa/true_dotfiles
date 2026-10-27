@@ -62,8 +62,11 @@
 				}
 				cmp_luasnip
 				cmp-nvim-lsp
-				luasnip
-				friendly-snippets
+				vim-vsnip
+				lspkind-nvim
+				cmp-cmdline
+				cmp-path
+				cmp-buffer
 				{
 					plugin = smear-cursor-nvim;
 					config = leer ./nvim/plugin/cursor.lua;
@@ -108,6 +111,11 @@
 				}
 				#fin_estetica
 				#miscelanea
+				{
+					plugin = himalaya-vim;
+					type="lua";
+					config = leer ./nvim/plugin/himalaya.lua;
+				}
 				{
 					plugin = telescope-nvim;
 					type="lua";
