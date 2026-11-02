@@ -1,26 +1,26 @@
 {pkgs,config, ... }:
 {
 # Disable systemd-boot
-  boot.loader.systemd-boot.enable = false;
-        ##boot.kernelPackages = pkgs.linuxKernel.kernels.linux_zen;
-  # Allow GRUB to write to EFI variables
-  boot.loader.efi.canTouchEfiVariables = true;
+	boot.loader.systemd-boot.enable = false;
+	boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
+# Allow GRUB to write to EFI variables
+	boot.loader.efi.canTouchEfiVariables = true;
 
-  # Enable GRUB
-  boot.loader.grub = {
-    enable = true;
-	useOSProber = true;
-    efiSupport = true;
-    device = "nodev"; 
-    efiInstallAsRemovable = false;
-    };
-  boot.loader.grub.configurationLimit = 2;
-        
-	#networking.useDHCP = false;
+# Enable GRUB
+	boot.loader.grub = {
+		enable = true;
+		useOSProber = true;
+		efiSupport = true;
+		device = "nodev"; 
+		efiInstallAsRemovable = false;
+	};
+	boot.loader.grub.configurationLimit = 2;
+
+#networking.useDHCP = false;
 
 	hardware.enableAllFirmware = true;
 	services.logind = {
 		settings.Login.HandlePowerKey= "ignore";
-		#powerKeyLongPress = "ignore"; # optional but recommended
-  	};
+#powerKeyLongPress = "ignore"; # optional but recommended
+	};
 }

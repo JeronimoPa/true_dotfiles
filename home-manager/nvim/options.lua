@@ -29,6 +29,10 @@ vim.keymap.set('n', '<leader>fb', function() require('telescope.builtin').buffer
 vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, { desc = 'Telescope help tags' })
 
 
+vim.keymap.set("n", "<leader>rs", function() require('nvim-rss').fetch_feed() end, { desc = "Breakpoint" })
+vim.keymap.set("n", "<leader>nr", function() require('nvim-rss').open_feeds_tab() end, { desc = "Breakpoint" })
+
+
 vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Breakpoint" })
 vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Continuar / iniciar" })
 vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step over" })
@@ -37,14 +41,5 @@ vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Step out" })
 vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Toggle dapui" })
 vim.keymap.set({ "n", "v" }, "<leader>de", dapui.eval, { desc = "Evaluar" })
 vim.opt.foldlevel=99
-vim.keymap.set("n", "<leader>da", function()
-	require("dap").run({
-		type = "java",
-		request = "attach",
-		name = "Attach al puerto 5005",
-		hostName = "127.0.0.1",
-		port = 5005,
-	})
-end, { desc = "Java: attach 5005" })
 --nnoremap <C-d> <C-d>zz
 --nnoremap <C-u> <C-u>zz

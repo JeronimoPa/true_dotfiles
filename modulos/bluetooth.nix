@@ -2,7 +2,11 @@
 {
 	hardware.bluetooth = {
 		enable = true;	
-		powerOnBoot = false;
+		powerOnBoot = true;
+		input.General = {
+			ClassicBondedOnly = false;
+			UserspaceHID = true;
+		};
 	};
 	services.blueman.enable = true;
 }

@@ -6,6 +6,6 @@
     isNormalUser = true;
     description = "jeronimo";
   	linger=true;
-    extraGroups = [ "networkmanager" "wheel" "gamemode" "audio"];
+    extraGroups = [ "networkmanager" "wheel" "gamemode" "audio" "input"];
   };
 }

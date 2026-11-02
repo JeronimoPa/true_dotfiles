@@ -12,10 +12,20 @@
 				src = pkgs.fetchFromGitHub {
 					owner = "knownasnaffy";        # el autor del plugin Lua
 						repo = "himalaya.nvim";   # nombre exacto del repo
-						rev = "main";
-					hash = "sha256-hMGa9iTEvODyOEj9gwa082oTTEPpuCps5OK7oNsy2sM="; # Nix te dará el hash real al compilar
+						rev = "81a283beba8d628b9977d82270d0110bc743a6ca";
+					hash = "sha256-hMGa9iTEvODyOEj9gwa082oTTEPpuCps5OK7oNsy2sM=";
 				};
 				dependencies = [ pkgs.vimPlugins.nui-nvim ];
+			};
+			nvim-rss = pkgs.vimUtils.buildVimPlugin {
+				pname = "nvim-rss";
+				version = "unstable";
+				src = pkgs.fetchFromGitHub {
+					owner = "p-tupe";        # el autor del plugin Lua
+						repo = "nvim-rss";   # nombre exacto del repo
+						rev = "3b8b982a333d6ada66e01afe56b381cb2fda7e31";
+					hash = "sha256-nt9HNDZhDPXpG89LZTOZhGpcoqT6fTUtYuPmloF3iBA="; # Nix te dará el hash real al compilar
+				};
 			};
 		in
 			{
@@ -50,6 +60,12 @@
 				render-markdown-nvim
 				#fin_markdown
 				#lsp-config
+				{
+					plugin = nvim-rss;
+					type="lua";
+					config = leer ./nvim/plugin/rss.lua;
+				}
+				nvim-rss			
 				{
 					plugin = nvim-lspconfig;
 					type="lua";
