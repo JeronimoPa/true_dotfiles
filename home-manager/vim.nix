@@ -17,6 +17,7 @@
 				};
 				dependencies = [ pkgs.vimPlugins.nui-nvim ];
 			};
+
 			nvim-rss = pkgs.vimUtils.buildVimPlugin {
 				pname = "nvim-rss";
 				version = "unstable";
@@ -52,6 +53,9 @@
 				poppler-utils
 				vscode-extensions.vscjava.vscode-java-debug
 				tree-sitter
+				docker-compose-language-service
+				dockerfile-language-server
+				luaPackages.jsregexp
 			]++[pkgs-unstable.himalaya];
 			plugins = with pkgs.vimPlugins; [
 				#markdown
@@ -113,6 +117,8 @@
 							p.c_sharp
 							p.markdown
 							p.terraform
+							p.dockerfile
+							p.yaml
 					]);
 				#	type="lua";
 				#	config = builtins.readFile ./modulos/nvim/plugin/treesitter.lua;

@@ -16,6 +16,7 @@
 			gnuplot
 			xdot
 			gdb
+			hyperfine
 
 #colaborador
 			clang_multi
@@ -41,6 +42,8 @@
 
 
 			terraform
+			kind
+			kubectl
 			];
 			
 	programs.nix-ld.enable = true;

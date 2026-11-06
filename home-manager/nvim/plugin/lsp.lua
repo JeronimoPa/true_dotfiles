@@ -8,10 +8,21 @@ vim.lsp.config('qmlls',{
 	cmd = {"qmlls", "-E"},
 })
 
+vim.lsp.enable('docker_compose_language_service')
+vim.lsp.config('docker_compose_language_service',{
+	capabilities=capabilities,
+})
+
+vim.lsp.enable('docker_language_server')
+vim.lsp.config('docker_language_server',{
+	capabilities=capabilities,
+})
+
 vim.lsp.enable('terraformls')
 vim.lsp.config('terraformls',{
 	capabilities=capabilities,
 })
+
 vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
     capabilities = capabilities,
@@ -29,6 +40,7 @@ vim.lsp.enable('omnisharp')
 vim.lsp.config('omnisharp', {
     capabilities = capabilities,
 })
+
 vim.lsp.enable('clangd-cpp')
 vim.lsp.config('clangd-cpp', {
 	root_markers = {'.'},
@@ -81,6 +93,7 @@ vim.lsp.enable("jsonls")
 vim.lsp.config('jsonls', {
 	capabilities = capabilities,
 })
+
 vim.lsp.enable('texlab')
 
 
