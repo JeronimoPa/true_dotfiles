@@ -32,6 +32,7 @@
 			./modulos/kvm.nix
 			./modulos/lsp.nix
 			./modulos/mgs.nix
+			./modulos/niri.nix
 			./modulos/nix.nix
 			./modulos/shell.nix
 			./modulos/ubicacion.nix
