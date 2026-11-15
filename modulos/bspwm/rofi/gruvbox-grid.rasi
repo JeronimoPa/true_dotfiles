@@ -1,0 +1,46 @@
+configuration {
+    show-icons:  true;
+    icon-theme:  "Papirus";   /* cambia por el tema de iconos que tengas instalado */
+    drun-display-format: "{name}";
+}
+
+@import "gruvbox-dark"
+
+window {
+    width:    30%;
+    location: center;
+    anchor:   center;
+    border:   2px;
+    border-color: @border-color;
+}
+
+listview {
+    columns:      3;           /* columnas del grid */
+    lines:        3;           /* filas visibles */
+    layout:       vertical;
+    flow:         horizontal;  /* rellena por filas, no por columnas */
+    fixed-height: true;
+    spacing:      8px;
+    padding:      8px;
+}
+
+element {
+    orientation:   vertical;   /* icono arriba, texto abajo */
+    padding:       12px;
+    border-radius: 6px;
+}
+
+element-icon {
+    size:             4em;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+}
+
+/* Quita el efecto "cebra" de las filas alternas, que en un grid queda raro */
+* {
+    alternate-normal-background: @background;
+}

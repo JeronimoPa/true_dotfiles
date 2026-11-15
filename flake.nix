@@ -26,7 +26,7 @@
 			#nvf.nixosModules.default # <- this imports the NixOS module that provides the options
 			#./nvf-configuration.nix
 
-
+			./modulos/bspwm.nix
 			./modulos/boot.nix
 			./modulos/gaming.nix
 			./modulos/kvm.nix
@@ -40,8 +40,6 @@
 			./modulos/wacom.nix
 			./modulos/asignaturas.nix
 			./modulos/bluetooth.nix
-			#./modulos/gnome.nix
-			#./modulos/kde.nix
 			];
 		in
 		{

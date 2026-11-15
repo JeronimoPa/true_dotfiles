@@ -2,44 +2,42 @@
 {
 	programs.neovim = 
 		let
-			#toLua = str: "lua << EOF\n${str}\nEOF\n";
-			toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-			leer = file: builtins.readFile file;
+		leer = file: builtins.readFile file;
 
-			himalaya-nvim = pkgs.vimUtils.buildVimPlugin {
-				pname = "himalaya-nvim";
-				version = "unstable";
-				src = pkgs.fetchFromGitHub {
-					owner = "knownasnaffy";        # el autor del plugin Lua
-						repo = "himalaya.nvim";   # nombre exacto del repo
-						rev = "81a283beba8d628b9977d82270d0110bc743a6ca";
-					hash = "sha256-hMGa9iTEvODyOEj9gwa082oTTEPpuCps5OK7oNsy2sM=";
-				};
-				dependencies = [ pkgs.vimPlugins.nui-nvim ];
-			};
+	himalaya-nvim = pkgs.vimUtils.buildVimPlugin {
+		pname = "himalaya-nvim";
+		version = "unstable";
+		src = pkgs.fetchFromGitHub {
+			owner = "knownasnaffy";        # el autor del plugin Lua
+				repo = "himalaya.nvim";   # nombre exacto del repo
+				rev = "81a283beba8d628b9977d82270d0110bc743a6ca";
+			hash = "sha256-hMGa9iTEvODyOEj9gwa082oTTEPpuCps5OK7oNsy2sM=";
+		};
+		dependencies = [ pkgs.vimPlugins.nui-nvim ];
+	};
 
-			nvim-rss = pkgs.vimUtils.buildVimPlugin {
-				pname = "nvim-rss";
-				version = "unstable";
-				src = pkgs.fetchFromGitHub {
-					owner = "p-tupe";        # el autor del plugin Lua
-						repo = "nvim-rss";   # nombre exacto del repo
-						rev = "3b8b982a333d6ada66e01afe56b381cb2fda7e31";
-					hash = "sha256-nt9HNDZhDPXpG89LZTOZhGpcoqT6fTUtYuPmloF3iBA="; # Nix te dará el hash real al compilar
-				};
-			};
-		in
-			{
-			enable = true;
+	nvim-rss = pkgs.vimUtils.buildVimPlugin {
+		pname = "nvim-rss";
+		version = "unstable";
+		src = pkgs.fetchFromGitHub {
+			owner = "p-tupe";        # el autor del plugin Lua
+				repo = "nvim-rss";   # nombre exacto del repo
+				rev = "3b8b982a333d6ada66e01afe56b381cb2fda7e31";
+			hash = "sha256-nt9HNDZhDPXpG89LZTOZhGpcoqT6fTUtYuPmloF3iBA="; # Nix te dará el hash real al compilar
+		};
+	};
+	in
+	{
+		enable = true;
 
-			viAlias = true;
-			vimAlias = true;
-			vimdiffAlias = true;
-			initLua= ''
-				${builtins.readFile ./nvim/options.lua}
-			'';
-			extraPackages = with pkgs; [
-				kdePackages.qtdeclarative
+		viAlias = true;
+		vimAlias = true;
+		vimdiffAlias = true;
+		initLua= ''
+			${builtins.readFile ./nvim/options.lua}
+		'';
+		extraPackages = with pkgs; [
+			kdePackages.qtdeclarative
 				nixd							#nix
 				clang-tools						#c y cpp
 				luajitPackages.lua-lsp			#lua
@@ -56,133 +54,133 @@
 				docker-compose-language-service
 				dockerfile-language-server
 				luaPackages.jsregexp
-			]++[pkgs-unstable.himalaya];
-			plugins = with pkgs.vimPlugins; [
-				#markdown
-				markdown-preview-nvim
+		]++[pkgs-unstable.himalaya];
+		plugins = with pkgs.vimPlugins; [
+#markdown
+			markdown-preview-nvim
 				markdown-nvim
 				render-markdown-nvim
-				#fin_markdown
-				#lsp-config
+#fin_markdown
+#lsp-config
 				{
 					plugin = nvim-rss;
 					type="lua";
 					config = leer ./nvim/plugin/rss.lua;
 				}
-				nvim-rss			
-				{
-					plugin = nvim-lspconfig;
-					type="lua";
-					config = leer ./nvim/plugin/lsp.lua;
-				}
-				{
-					plugin = nvim-ufo;
-					config = leer ./nvim/plugin/pliegues.lua;
-					type="lua";
-				}
-				nvim-jdtls
-				{
-					plugin = nvim-dap-ui;
-					config = leer ./nvim/plugin/debugger.lua;
-					type="lua";
-				}
-				{
-					plugin = nvim-cmp;
-					config = leer ./nvim/plugin/cmp.lua;
-					type="lua";
-				}
-				cmp_luasnip
-				cmp-nvim-lsp
-				vim-vsnip
-				lspkind-nvim
-				cmp-cmdline
-				cmp-path
-				cmp-buffer
-				{
-					plugin = smear-cursor-nvim;
-					config = leer ./nvim/plugin/cursor.lua;
-					type="lua";
-				}
+		nvim-rss			
+		{
+			plugin = nvim-lspconfig;
+			type="lua";
+			config = leer ./nvim/plugin/lsp.lua;
+		}
+		{
+			plugin = nvim-ufo;
+			config = leer ./nvim/plugin/pliegues.lua;
+			type="lua";
+		}
+		nvim-jdtls
+		{
+			plugin = nvim-dap-ui;
+			config = leer ./nvim/plugin/debugger.lua;
+			type="lua";
+		}
+		{
+			plugin = nvim-cmp;
+			config = leer ./nvim/plugin/cmp.lua;
+			type="lua";
+		}
+		cmp_luasnip
+			cmp-nvim-lsp
+			vim-vsnip
+			lspkind-nvim
+			cmp-cmdline
+			cmp-path
+			cmp-buffer
+			{
+				plugin = smear-cursor-nvim;
+				config = leer ./nvim/plugin/cursor.lua;
+				type="lua";
+			}
 
-				
-				{
-					plugin = nvim-treesitter.withPlugins (p: [
-							p.vim
-							p.bash
-							p.lua
-							p.python
-							p.java
-							p.c
-							p.cpp
-							p.c_sharp
-							p.markdown
-							p.terraform
-							p.dockerfile
-							p.yaml
-					]);
-				#	type="lua";
-				#	config = builtins.readFile ./modulos/nvim/plugin/treesitter.lua;
-				}
-				#fin_lsp-config
-				#estetica
-				{
-					plugin = gruvbox-nvim;
-					type="lua";
-					config = ''
-						require("gruvbox").setup()
-						vim.cmd.colorscheme('gruvbox')
-						'';
-				}
-				#{
-				#	plugin = neo-tree-nvim;
-				#	type="lua";
-				#	config = leer ./nvim/plugin/neo-tree.lua;
-				#}
-				{
-					plugin = lualine-nvim;
-					type="lua";
-					config = leer ./nvim/plugin/lualine.lua;
-				}
-				#fin_estetica
-				#miscelanea
 
-				{
-					plugin = himalaya-nvim;
-					type="lua";
-					config = leer ./nvim/plugin/himalaya.lua;
-				}
-				{
-					plugin = telescope-nvim;
-					type="lua";
-					config = leer ./nvim/plugin/telescope.lua;
-				}
-				#{
-				#	plugin = obsidian-nvim;
-				#	type="lua";
-				#	config = leer ./modulos/nvim/plugin/obsidian.lua;
-				#}
-				{
-					plugin = nvim-autopairs;
-					type="lua";
-					config = leer ./nvim/plugin/autopair.lua;
-				}
-				{
-					plugin = alpha-nvim;
-					type="lua";
-					config = leer ./nvim/plugin/alpha.lua;
-				}
-				nvim-web-devicons
-				#fin_miscelanea
+		{
+			plugin = nvim-treesitter.withPlugins (p: [
+					p.vim
+					p.bash
+					p.lua
+					p.python
+					p.java
+					p.c
+					p.cpp
+					p.c_sharp
+					p.markdown
+					p.terraform
+					p.dockerfile
+					p.yaml
+			]);
+#	type="lua";
+#	config = builtins.readFile ./modulos/nvim/plugin/treesitter.lua;
+		}
+#fin_lsp-config
+#estetica
+		{
+			plugin = gruvbox-nvim;
+			type="lua";
+			config = ''
+				require("gruvbox").setup()
+				vim.cmd.colorscheme('gruvbox')
+				'';
+		}
+#{
+#	plugin = neo-tree-nvim;
+#	type="lua";
+#	config = leer ./nvim/plugin/neo-tree.lua;
+#}
+		{
+			plugin = lualine-nvim;
+			type="lua";
+			config = leer ./nvim/plugin/lualine.lua;
+		}
+#fin_estetica
+#miscelanea
+
+		{
+			plugin = himalaya-nvim;
+			type="lua";
+			config = leer ./nvim/plugin/himalaya.lua;
+		}
+		{
+			plugin = telescope-nvim;
+			type="lua";
+			config = leer ./nvim/plugin/telescope.lua;
+		}
+#{
+#	plugin = obsidian-nvim;
+#	type="lua";
+#	config = leer ./modulos/nvim/plugin/obsidian.lua;
+#}
+		{
+			plugin = nvim-autopairs;
+			type="lua";
+			config = leer ./nvim/plugin/autopair.lua;
+		}
+		{
+			plugin = alpha-nvim;
+			type="lua";
+			config = leer ./nvim/plugin/alpha.lua;
+		}
+		nvim-web-devicons
+#fin_miscelanea
 			];
 
 
-			# extraLuaConfig = ''
-			#   ${builtins.readFile ./nvim/options.lua}
-			#   ${builtins.readFile ./nvim/plugin/lsp.lua}
-			#   ${builtins.readFile ./nvim/plugin/cmp.lua}
-			#   ${builtins.readFile ./nvim/plugin/telescope.lua}
-			#   ${builtins.readFile ./nvim/plugin/treesitter.lua}
-			#   ${builtins.readFile ./nvim/plugin/other.lua}
-			# '';
-		};
+# extraLuaConfig = ''
+#   ${builtins.readFile ./nvim/options.lua}
+#   ${builtins.readFile ./nvim/plugin/lsp.lua}
+#   ${builtins.readFile ./nvim/plugin/cmp.lua}
+#   ${builtins.readFile ./nvim/plugin/telescope.lua}
+#   ${builtins.readFile ./nvim/plugin/treesitter.lua}
+#   ${builtins.readFile ./nvim/plugin/other.lua}
+# '';
+	};
 }

@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -show drun -theme $HOME/.config/rofi/gruvbox-dark.rasi -location 0
+	rofi -show drun -theme $HOME/.config/rofi/gruvbox-grid.rasi -location 0
 
 # make sxhkd reload its configuration files:
 super + Escape
