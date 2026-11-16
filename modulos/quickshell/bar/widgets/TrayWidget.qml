@@ -3,6 +3,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
+import qs.theme
 
 
 Row {

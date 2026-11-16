@@ -1,5 +1,6 @@
 // StatWidget.qml
 import QtQuick
+import qs.theme
 
 Rectangle {
 	id: root

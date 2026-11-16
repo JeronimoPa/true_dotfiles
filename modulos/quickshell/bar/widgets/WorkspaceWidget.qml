@@ -1,5 +1,7 @@
 // WorkspaceWidget.qml
 import QtQuick
+import qs.services
+import qs.theme
 
 Row {
 	id: root

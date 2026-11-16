@@ -1,5 +1,6 @@
 // BatteryWidget.qml
 import Quickshell.Services.UPower
+import qs.components
 
 StatWidget {
 	readonly property var dev: UPower.displayDevice

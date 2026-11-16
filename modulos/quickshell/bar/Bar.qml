@@ -1,6 +1,9 @@
 // Bar.qml
 import Quickshell
 import QtQuick
+import qs.bar.widgets
+import qs.components
+import qs.services
 Scope {
 	// no more time object
 

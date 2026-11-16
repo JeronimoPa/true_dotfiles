@@ -2,6 +2,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.Pipewire
 import Quickshell.Wayland
+import qs.components
+import qs.theme
 
 StatWidget {
     id: root
