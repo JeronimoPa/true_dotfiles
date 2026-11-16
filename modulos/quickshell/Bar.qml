@@ -1,6 +1,6 @@
 // Bar.qml
 import Quickshell
-
+import QtQuick
 Scope {
 	// no more time object
 
@@ -10,7 +10,7 @@ Scope {
 		PanelWindow {
 			required property var modelData
 			screen: modelData
-
+			color: "transparent"
 			anchors {
 				top: true
 				left: true
@@ -19,21 +19,38 @@ Scope {
 
 			implicitHeight: 30
 			
-			WorkspaceWidget {
-				output: modelData.name
+			Row {
 				anchors.left: parent.left
 				anchors.leftMargin: 10
 				anchors.verticalCenter: parent.verticalCenter
+				spacing: 12
+
+				// reserva el ancho de 5 workspaces aunque haya menos
+				Item {
+					implicitWidth: workspaces.maxWidth
+					implicitHeight: workspaces.implicitHeight
+
+					WorkspaceWidget {
+						id: workspaces
+						output: modelData.name
+					}
+				}
+
+				TrayWidget {}
+				MusicPlayer {}
 			}
-			TrayWidget {
+			Row {
 				anchors.right: parent.right
 				anchors.rightMargin: 10
 				anchors.verticalCenter: parent.verticalCenter
-			}
-			ClockWidget {
-				anchors.centerIn: parent
-
-				// no more time binding
+				spacing: 6
+				
+				Volume {}
+				ClockWidget {}
+				StatWidget { kind: "cpu";label: ""; value: SystemStats.cpu }
+				StatWidget { kind: "ram";label: ""; value: SystemStats.ram }
+				StatWidget { kind: "gpu";label: "󰖺"; value: SystemStats.gpu }
+				BatteryWidget {}
 			}
 		}
 	}

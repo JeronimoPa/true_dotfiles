@@ -4,13 +4,14 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
 
+
 Row {
 	id: root
 
 	spacing: 6
 
 	Repeater {
-		model: SystemTray.items
+		model: SystemTray.items.values.slice(0,6)
 
 		Rectangle {
 			id: box

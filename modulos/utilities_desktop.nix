@@ -2,7 +2,7 @@
 {
 	#para fightcade creo
 	xdg.portal.enable = true;
-	xdg.portal.extraPortals = [pkgs.xdg-desktop-portal];
+	xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 	xdg.portal.config.common.default = "*";
 	
 	#lightdm
@@ -21,7 +21,8 @@
 			accelSpeed = "0";
 		};
 	};
-
+	services.upower.enable = true;
+	services.playerctld.enable = true;
 	#keyring
 	services.gnome.gnome-keyring.enable = true;
 

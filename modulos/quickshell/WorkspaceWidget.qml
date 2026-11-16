@@ -6,6 +6,12 @@ Row {
 
 	property string output: ""
 
+	readonly property int cellWidth: 30
+	readonly property int maxCount: 5
+
+	// ancho que ocupan 5 workspaces, para reservar el sitio
+	readonly property real maxWidth: maxCount * cellWidth + (maxCount - 1) * spacing
+
 	spacing: 6
 
 	function toRoman(n) {
@@ -30,22 +36,23 @@ Row {
 		Rectangle {
 			required property var modelData
 
-			implicitWidth: Math.max(24, label.implicitWidth + 12)
+			implicitWidth: root.cellWidth
 			implicitHeight: 20
 			radius: 4
 			color: modelData.is_focused ? Theme.accent
-				: modelData.is_active ? Theme.surfaceHover
-				: Theme.surface
+			: (modelData.is_active || area.containsMouse) ? Theme.surfaceHover
+			: Theme.surface
 
 			Text {
-				id: label
 				anchors.centerIn: parent
 				text: modelData.name ?? root.toRoman(modelData.idx)
 				color: Theme.text
 			}
 
 			MouseArea {
+				id: area
 				anchors.fill: parent
+				hoverEnabled: true
 				onClicked: Niri.focusWorkspace(modelData.idx)
 			}
 		}

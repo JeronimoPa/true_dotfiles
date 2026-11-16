@@ -41,13 +41,6 @@
 	programs.zsh={
 		enable = true;
 		#enableCompletion = true;
-		antidote =
-		{
-			enable=true;
-			plugins=[
-			"dgr8akki/faahzsh"
-			];
-		};
 		oh-my-zsh={ 
 			enable = true;
 			theme = "jonathan";
