@@ -1,7 +1,6 @@
 import QtQuick
 import Quickshell
 import Quickshell.Services.Pipewire
-import Quickshell.Wayland
 import qs.components
 import qs.theme
 
@@ -11,7 +10,12 @@ StatWidget {
     readonly property var sink: Pipewire.defaultAudioSink
     readonly property bool muted: sink?.audio?.muted ?? false
     readonly property var sinks: Pipewire.nodes.values.filter(n => n.isSink && !n.isStream && n.audio)
-
+	readonly property string icon: {
+		if (muted /*|| value === 0*/) return "󰝟"   // mute
+		if (value < 34) return "󰕿"             // bajo
+		if (value < 67) return "󰖀"             // medio
+		return "󰕾"                             // alto
+	}
     PwObjectTracker {
         objects: [root.sink]
     }
@@ -19,8 +23,9 @@ StatWidget {
     kind: "volume"
     label: ""
     value: (sink?.audio?.volume ?? 0) * 100
-    display: muted ? "mute" : Math.round(value) + "%"
-    reserve: "100%"
+	display: icon 
+	reserve: "󰕾"
+
 
     MouseArea {
         anchors.fill: parent
@@ -39,31 +44,6 @@ StatWidget {
             if (!audio) return
             const step = wheel.angleDelta.y > 0 ? 0.05 : -0.05
             audio.volume = Math.max(0, Math.min(1, audio.volume + step))
-        }
-    }
-
-    // Ventana transparente que cierra el menú al hacer clic fuera
-    PanelWindow {
-        screen: root.QsWindow.window?.screen
-
-        visible: menu.open
-        color: "transparent"
-
-        anchors {
-            top: true
-            bottom: true
-            left: true
-            right: true
-        }
-
-        exclusionMode: ExclusionMode.Ignore
-        WlrLayershell.layer: WlrLayer.Top
-        WlrLayershell.namespace: "volume-dismiss"
-
-        MouseArea {
-            anchors.fill: parent
-            acceptedButtons: Qt.AllButtons
-            onPressed: menu.open = false
         }
     }
 
@@ -130,7 +110,7 @@ StatWidget {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left: parent.left
                             anchors.leftMargin: 8
-                            color: Theme.statColorsText.volume
+                            color: "#000000"
                             font.bold: parent.current
                             text: (parent.current ? "● " : "  ") + (modelData.description || modelData.nickname || modelData.name)
                         }

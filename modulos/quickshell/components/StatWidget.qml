@@ -33,6 +33,7 @@ Rectangle {
 		spacing: 6
 
 		Text {
+			visible: root.label !== ""
 			text: root.label
 			color: palabras
 		}
@@ -40,7 +41,8 @@ Rectangle {
 		Text {
 			id: valueText
 			width: Math.max(metrics.width, implicitWidth)
-			horizontalAlignment: Text.AlignRight
+			horizontalAlignment: root.label === "" ? Text.AlignHCenter : Text.AlignRight
+			//horizontalAlignment: Text.AlignRight
 			text: root.display
 			color: palabras
 		}

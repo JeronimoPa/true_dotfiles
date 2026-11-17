@@ -54,6 +54,7 @@
 				docker-compose-language-service
 				dockerfile-language-server
 				luaPackages.jsregexp
+				yaml-language-server
 		]++[pkgs-unstable.himalaya];
 		plugins = with pkgs.vimPlugins; [
 #markdown
