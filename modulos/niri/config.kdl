@@ -40,7 +40,8 @@ input {
     // Omitting settings disables them, or leaves them at their default values.
     // All commented-out settings here are examples, not defaults.
     touchpad {
-        // off
+		// TPOFF
+        //off
         tap
         // dwt
         // dwtp
@@ -403,6 +404,10 @@ binds {
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+
+	//XF86TouchpadToggle repeat=false { toggle-touchpad; }
+
+	XF86TouchpadToggle allow-when-locked=true { spawn "/home/jeronimo/.config/niri/touchpad.sh"; }
 
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),

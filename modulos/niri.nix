@@ -7,6 +7,7 @@
 	environment.systemPackages = with pkgs; [
 		xwayland-satellite
 		quickshell
+		libnotify
 	];
 	programs.xwayland.enable = true;
 }
