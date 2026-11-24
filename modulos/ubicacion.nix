@@ -5,7 +5,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "es_ES.UTF-8";
 
-
   nixpkgs.config.allowUnfree = true;
 
   i18n.extraLocaleSettings = {
