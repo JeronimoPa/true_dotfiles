@@ -23,8 +23,11 @@
 	#hardware.graphics.extraPackages = [ pkgs.pkgsi686Linux.libglvnd ];
 
 	environment.systemPackages = with pkgs; [
-		#(pkgs.tetrio-desktop.override { withTetrioPlus = true; })	
-		#tetrio-plus
+		tesseract
+		xwininfo
+
+		shipwright
+
 		trayscale
 
 		winetricks
@@ -81,7 +84,9 @@
 		gamemode.enable = true;
 
 	};
-	
+	programs.nix-ld.enable = true;
+	programs.nix-ld.libraries = with pkgs; [
+];
 	#	services.archisteamfarm={
 	#		enable = true;
 	#		settings = { Statistics = false; };

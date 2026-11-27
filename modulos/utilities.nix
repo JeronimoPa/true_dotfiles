@@ -10,8 +10,8 @@
 		user = "jeronimo";
 	};
 	nixpkgs.config.permittedInsecurePackages = [
-                "electron-39.8.10"
-              ];
+		"electron-39.8.10"
+	];
 	networking.networkmanager.enable = true;
 	networking.firewall.allowedTCPPorts = [ 8384 ];
 	nixpkgs.config.allowUnfree = true;
@@ -32,6 +32,10 @@
 	};
 	services.ratbagd.enable = true;
 	security.polkit.enable = true;
+	programs.appimage = {
+		enable = true;
+		binfmt = true;
+	};
 	
 
 	xdg.mime.defaultApplications = {
@@ -47,7 +51,10 @@
 
 
 	environment.systemPackages = with pkgs; [
+		logseq
+
 		pulseaudio
+
 		zip
 
 		openssl
